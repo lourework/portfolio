@@ -1,0 +1,27 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro'
+import ProjectNav from '../../components/project/ProjectNav.astro'
+import CaseDetail from '../../components/project/CaseDetail.astro'
+import FrontendDetail from '../../components/project/FrontendDetail.astro'
+import UIDetail from '../../components/project/UIDetail.astro'
+import StudyDetail from '../../components/project/StudyDetail.astro'
+import { allProjects } from '../../data/projects/index'
+import type { ProjectCase, ProjectFrontend, ProjectUI, ProjectStudy } from '../../data/projects/index'
+
+export async function getStaticPaths() {
+  return allProjects.map(p => ({
+    params: { slug: p.slug },
+    props: { project: p },
+  }))
+}
+
+const { project } = Astro.props
+---
+<ProjectLayout title={project.title} description={project.shortDescription}>
+  <ProjectNav currentSlug={project.slug} />
+
+  {project.type === 'case' && <CaseDetail project={project as ProjectCase} />}
+  {project.type === 'frontend' && <FrontendDetail project={project as ProjectFrontend} />}
+  {project.type === 'ui' && <UIDetail project={project as ProjectUI} />}
+  {project.type === 'study' && <StudyDetail project={project as ProjectStudy} />}
+</ProjectLayout>

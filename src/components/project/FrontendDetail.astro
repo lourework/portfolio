@@ -1,0 +1,49 @@
+---
+import type { ProjectFrontend } from '../../data/projects/index'
+
+interface Props {
+  project: ProjectFrontend
+}
+
+const { project: p } = Astro.props
+---
+<article class="max-w-5xl mx-auto px-6 pb-20">
+  <header class="mb-16">
+    <div class="flex gap-2 flex-wrap mb-4">
+      {p.category.map(cat => (
+        <span class="text-xs text-[#6b6b6b] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+      ))}
+    </div>
+    <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-6">{p.title}</h1>
+    <div class="flex gap-2 flex-wrap">
+      {p.stack.map(tech => (
+        <span class="text-xs font-medium bg-[#eeecea] px-3 py-1">{tech}</span>
+      ))}
+    </div>
+  </header>
+
+  {p.coverImage && (
+    <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
+      <img src={p.coverImage} alt={p.title} class="w-full h-full object-cover" />
+    </div>
+  )}
+
+  <section class="mb-14 max-w-2xl">
+    <p class="text-base leading-relaxed text-[#3a3a3a] mb-6">{p.overview}</p>
+    {p.insight && (
+      <blockquote class="border-l-2 border-[#c8a882] pl-5 italic text-[#6b6b6b]">{p.insight}</blockquote>
+    )}
+  </section>
+
+  {p.images.length > 0 && (
+    <section class="mb-14">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {p.images.map(img => (
+          <div class="bg-[#eeecea] overflow-hidden">
+            <img src={img} alt={p.title} class="w-full h-full object-cover" />
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+</article>

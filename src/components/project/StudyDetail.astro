@@ -1,0 +1,193 @@
+---
+import FigmaEmbed from './FigmaEmbed.astro'
+import type { ProjectStudy } from '../../data/projects/index'
+
+interface Props {
+  project: ProjectStudy
+}
+
+const { project: p } = Astro.props
+---
+<article class="max-w-5xl mx-auto px-6 pb-20">
+  <header class="mb-16">
+    <div class="flex gap-2 flex-wrap mb-4">
+      {p.category.map(cat => (
+        <span class="text-xs text-[#6b6b6b] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+      ))}
+    </div>
+    <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight">{p.title}</h1>
+  </header>
+
+  {p.coverImage && (
+    <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
+      <img src={p.coverImage} alt={p.title} class="w-full h-full object-cover" />
+    </div>
+  )}
+
+  <!-- Overview -->
+  {p.overview && (
+    <section class="mb-14 max-w-2xl">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Overview</h2>
+      <p class="text-base leading-relaxed text-[#3a3a3a]">{p.overview}</p>
+    </section>
+  )}
+
+  <!-- Goal -->
+  {p.goal && (
+    <section class="mb-14 max-w-2xl">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Project Goal</h2>
+      <p class="text-base leading-relaxed text-[#3a3a3a]">{p.goal}</p>
+    </section>
+  )}
+
+  <!-- Personas -->
+  {p.personas && p.personas.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-6">Users & Personas</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {p.personas.map(persona => (
+          <div class="bg-[#eeecea] p-4">
+            <img src={persona.image} alt={persona.title} class="w-full object-cover mb-3" />
+            <p class="text-sm font-medium">{persona.title}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- User Context -->
+  {p.userContext && p.userContext.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-6">User Context</h2>
+      <div class="space-y-10">
+        {p.userContext.map(ctx => (
+          <div>
+            <h3 class="font-serif text-lg font-semibold mb-2">{ctx.title}</h3>
+            <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-4">{ctx.description}</p>
+            {ctx.image && (
+              <div class="bg-[#eeecea] overflow-hidden">
+                <img src={ctx.image} alt={ctx.title} class="w-full object-cover" />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Research -->
+  {p.research && p.research.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-6">Research</h2>
+      <div class="space-y-10">
+        {p.research.map(r => (
+          <div>
+            <h3 class="font-serif text-lg font-semibold mb-2">{r.title}</h3>
+            <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-4">{r.content}</p>
+            {r.image && (
+              <div class="bg-[#eeecea] overflow-hidden">
+                <img src={r.image} alt={r.title} class="w-full object-cover" />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Solution Alternatives -->
+  {p.solutionAlternatives && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Solution Alternatives</h2>
+      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{p.solutionAlternatives.content}</p>
+      {p.solutionAlternatives.images.length > 0 && (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {p.solutionAlternatives.images.map(img => (
+            <div class="bg-[#eeecea] overflow-hidden">
+              <img src={img} alt="Solution alternatives" class="w-full object-cover" />
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  )}
+
+  <!-- Solution -->
+  {p.solution && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Solution</h2>
+      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-4">{p.solution.concept}</p>
+      {p.solution.branding && (
+        <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{p.solution.branding}</p>
+      )}
+      {p.solution.images.length > 0 && (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {p.solution.images.map(img => (
+            <div class="bg-[#eeecea] overflow-hidden">
+              <img src={img} alt="Solution" class="w-full object-cover" />
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  )}
+
+  <!-- Wireframes -->
+  {p.wireframes && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Wireframes</h2>
+      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{p.wireframes.description}</p>
+      {p.wireframes.images.length > 0 && (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          {p.wireframes.images.map(img => (
+            <div class="bg-[#eeecea] overflow-hidden">
+              <img src={img} alt="Wireframes" class="w-full object-cover" />
+            </div>
+          ))}
+        </div>
+      )}
+      {p.wireframes.figmaUrl && <FigmaEmbed url={p.wireframes.figmaUrl} title="Wireframe prototype" />}
+    </section>
+  )}
+
+  <!-- Usability Tests -->
+  {p.usabilityTests && p.usabilityTests.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Usability Tests</h2>
+      <ul class="space-y-2 max-w-2xl">
+        {p.usabilityTests.map(item => (
+          <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#c8a882] mt-1">→</span>{item}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <!-- Prototype -->
+  {p.prototype && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">High-fidelity Prototype</h2>
+      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{p.prototype.description}</p>
+      {p.prototype.images.length > 0 && (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          {p.prototype.images.map(img => (
+            <div class="bg-[#eeecea] overflow-hidden">
+              <img src={img} alt="Prototype" class="w-full object-cover" />
+            </div>
+          ))}
+        </div>
+      )}
+      {p.prototype.videoUrl && (
+        <video src={p.prototype.videoUrl} controls class="w-full mb-6 border border-[#e0ddd8]" />
+      )}
+      {p.prototype.figmaUrl && <FigmaEmbed url={p.prototype.figmaUrl} title="High-fidelity prototype" />}
+    </section>
+  )}
+
+  <!-- Next Steps -->
+  {p.nextSteps && (
+    <section class="mb-14 max-w-2xl">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Next Steps</h2>
+      <p class="text-base leading-relaxed text-[#3a3a3a]">{p.nextSteps}</p>
+    </section>
+  )}
+</article>

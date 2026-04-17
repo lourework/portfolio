@@ -1,0 +1,124 @@
+---
+import FigmaEmbed from './FigmaEmbed.astro'
+import type { ProjectCase } from '../../data/projects/index'
+
+interface Props {
+  project: ProjectCase
+}
+
+const { project: p } = Astro.props
+---
+<article class="max-w-5xl mx-auto px-6 pb-20">
+  <!-- Header -->
+  <header class="mb-16">
+    <div class="flex gap-2 flex-wrap mb-4">
+      {p.category.map(cat => (
+        <span class="text-xs text-[#6b6b6b] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+      ))}
+    </div>
+    <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-6">{p.title}</h1>
+    <dl class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Role</dt><dd>{p.role}</dd></div>
+      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Product</dt><dd>{p.product}</dd></div>
+      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Platform</dt><dd>{p.platform}</dd></div>
+      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Duration</dt><dd>{p.duration}</dd></div>
+      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Focus</dt><dd>{p.focus}</dd></div>
+    </dl>
+  </header>
+
+  <!-- Cover -->
+  {p.coverImage && (
+    <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
+      <img src={p.coverImage} alt={p.title} class="w-full h-full object-cover" />
+    </div>
+  )}
+
+  <!-- Overview -->
+  <section class="mb-14 max-w-2xl">
+    <p class="text-base leading-relaxed text-[#3a3a3a]">{p.overview}</p>
+  </section>
+
+  <!-- Problem -->
+  <section class="mb-14">
+    <h2 class="font-serif text-2xl font-semibold mb-4">The Problem</h2>
+    <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl">{p.problem}</p>
+  </section>
+
+  <!-- Goals -->
+  {p.goals.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Goals</h2>
+      <ul class="space-y-2 max-w-2xl">
+        {p.goals.map(g => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#c8a882] mt-1">→</span>{g}</li>)}
+      </ul>
+    </section>
+  )}
+
+  <!-- My Role -->
+  {p.myRole.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">My Role</h2>
+      <ul class="space-y-2 max-w-2xl">
+        {p.myRole.map(r => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#c8a882] mt-1">→</span>{r}</li>)}
+      </ul>
+    </section>
+  )}
+
+  <!-- Process -->
+  {p.process.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Process</h2>
+      <ol class="space-y-2 max-w-2xl">
+        {p.process.map((step, i) => (
+          <li class="flex gap-3 text-[#3a3a3a]">
+            <span class="text-[#c8a882] font-medium min-w-[1.5rem]">{i + 1}.</span>
+            {step}
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <!-- Key Solutions -->
+  {p.solutions.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-8">Key Solutions</h2>
+      <div class="space-y-16">
+        {p.solutions.map(sol => (
+          <div>
+            <h3 class="font-serif text-xl font-semibold mb-3">{sol.title}</h3>
+            <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{sol.description}</p>
+            {sol.images.length > 0 && (
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                {sol.images.map(img => (
+                  <div class="bg-[#eeecea] overflow-hidden">
+                    <img src={img} alt={sol.title} class="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
+            )}
+            {sol.figmaUrl && <FigmaEmbed url={sol.figmaUrl} title={sol.title} />}
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Impact -->
+  {p.impact.length > 0 && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Impact & Outcome</h2>
+      <ul class="space-y-2 max-w-2xl">
+        {p.impact.map(item => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#c8a882] mt-1">✦</span>{item}</li>)}
+      </ul>
+    </section>
+  )}
+
+  <!-- Learnings -->
+  {p.learnings && (
+    <section class="mb-14">
+      <h2 class="font-serif text-2xl font-semibold mb-4">Learnings</h2>
+      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl">{p.learnings}</p>
+    </section>
+  )}
+</article>

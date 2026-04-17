@@ -1,0 +1,47 @@
+---
+import FigmaEmbed from './FigmaEmbed.astro'
+import type { ProjectUI } from '../../data/projects/index'
+
+interface Props {
+  project: ProjectUI
+}
+
+const { project: p } = Astro.props
+---
+<article class="max-w-5xl mx-auto px-6 pb-20">
+  <header class="mb-16">
+    <div class="flex gap-2 flex-wrap mb-4">
+      {p.category.map(cat => (
+        <span class="text-xs text-[#6b6b6b] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+      ))}
+    </div>
+    <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-4">{p.title}</h1>
+    {p.contextNote && (
+      <p class="text-sm text-[#6b6b6b] italic">{p.contextNote}</p>
+    )}
+  </header>
+
+  {p.coverImage && (
+    <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
+      <img src={p.coverImage} alt={p.title} class="w-full h-full object-cover" />
+    </div>
+  )}
+
+  <div class="space-y-20">
+    {p.groups.map(group => (
+      <section>
+        <h2 class="font-serif text-2xl font-semibold mb-6">{group.title}</h2>
+        {group.images.length > 0 && (
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            {group.images.map(img => (
+              <div class="bg-[#eeecea] overflow-hidden">
+                <img src={img} alt={group.title} class="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        )}
+        {group.figmaUrl && <FigmaEmbed url={group.figmaUrl} title={group.title} />}
+      </section>
+    ))}
+  </div>
+</article>

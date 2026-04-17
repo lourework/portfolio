@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Skills from '../components/Skills.astro'
+
+const beyondWork = [
+  "Oliver's mom",
+  'photography',
+  'traveling',
+  'reality shows',
+  'hands-on crafts',
+  'dog lover',
+  'brazilian funk',
+  'wine',
+  'friends',
+]
+---
+<BaseLayout title="About — Babi Lourenço" description="About Barbara Lourenço, Product & UX/UI Designer based in Longueuil, QC.">
+  <div class="max-w-5xl mx-auto px-6 pt-16 pb-24">
+    <h1 class="font-serif text-5xl font-semibold mb-16">about</h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-16">
+      <div class="space-y-16">
+        <!-- Bio -->
+        <section>
+          <p class="text-base leading-loose text-[#3a3a3a] max-w-2xl">
+            I'm Barbara Lourenço, a Product & UX/UI Designer based in Longueuil, QC. With a multidisciplinary background in multimedia, web design, and frontend development, I create digital experiences that are intuitive, accessible, and visually thoughtful. I've worked with agencies, startups, and product companies in Brazil and Canada. My strengths include building scalable design systems, refining user journeys, and designing interfaces that balance clarity and creativity. After a recent maternity leave, I'm now looking for new opportunities in Product & UX Design while also exploring my artistic side through photography. I bring empathy, strategy, and a multidisciplinary lens to everything I design.
+          </p>
+        </section>
+
+        <!-- Beyond Work -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold mb-5">beyond work</h2>
+          <div class="flex flex-wrap gap-2">
+            {beyondWork.map(tag => (
+              <span class="text-sm px-3 py-1.5 border border-[#e0ddd8] text-[#6b6b6b]">{tag}</span>
+            ))}
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <Skills />
+      </div>
+
+      <!-- Side CTA -->
+      <div class="lg:pt-2">
+        <div class="sticky top-24 space-y-6">
+          <div class="border border-[#e0ddd8] p-6 space-y-4">
+            <p class="text-sm text-[#6b6b6b] leading-relaxed">
+              Open to new opportunities in Product & UX Design in Canada.
+            </p>
+            <div class="space-y-2">
+              <a
+                href="mailto:bacarolina.g@gmail.com"
+                class="block w-full text-center px-4 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium hover:bg-[#333] transition-colors"
+              >
+                Get in touch
+              </a>
+              <a
+                href="https://linkedin.com/in/barbaralourenco"
+                target="_blank"
+                rel="noopener"
+                class="block w-full text-center px-4 py-2.5 border border-[#1a1a1a] text-sm font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

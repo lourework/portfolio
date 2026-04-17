@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ProjectFilter from '../../components/ProjectFilter.tsx'
+import { allProjects } from '../../data/projects/index'
+
+const serialized = allProjects.map(p => ({
+  slug: p.slug,
+  title: p.title,
+  category: p.category,
+  shortDescription: p.shortDescription,
+  coverImage: p.coverImage,
+  type: p.type,
+}))
+---
+<BaseLayout title="Work — Babi Lourenço" description="Portfolio of all projects by Barbara Lourenço, Product & UX/UI Designer.">
+  <div class="max-w-5xl mx-auto px-6 pt-16 pb-24">
+    <h1 class="font-serif text-5xl font-semibold mb-16">work</h1>
+    <ProjectFilter client:load projects={serialized} />
+  </div>
+</BaseLayout>

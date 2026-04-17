@@ -1,0 +1,22 @@
+---
+import ProjectCard from './ProjectCard.tsx'
+import type { Project } from '../data/projects/index'
+
+interface Props {
+  projects: Project[]
+}
+
+const { projects } = Astro.props
+---
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+  {projects.map(p => (
+    <ProjectCard
+      client:load
+      slug={p.slug}
+      title={p.title}
+      category={p.category}
+      shortDescription={p.shortDescription}
+      coverImage={p.coverImage}
+    />
+  ))}
+</div>

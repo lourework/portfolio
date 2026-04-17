@@ -1,0 +1,17 @@
+---
+interface Props {
+  url: string
+  title?: string
+}
+
+const { url, title = 'Figma prototype' } = Astro.props
+---
+<div class="w-full aspect-video border border-[#e0ddd8] overflow-hidden my-8">
+  <iframe
+    src={url}
+    title={title}
+    allowfullscreen
+    class="w-full h-full"
+    loading="lazy"
+  />
+</div>
