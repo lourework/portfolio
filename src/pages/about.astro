@@ -1,52 +1,145 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Skills from '../components/Skills.astro'
 
 const beyondWork = [
-  "Oliver's mom",
-  'photography',
-  'traveling',
-  'reality shows',
-  'hands-on crafts',
+  "Oliver's mom 🤍",
+  'photography as a way of seeing the world',
+  'traveling whenever possible',
+  'reality shows as a guilty pleasure',
+  'hands-on crafts & creative processes beyond the screen',
   'dog lover',
-  'brazilian funk',
-  'wine',
-  'friends',
+  'brazilian funk on repeat',
+  'wine to slow down',
+  'friends as my comfort zone',
+]
+
+const skills = [
+  'User Flows', 'Style Guides', 'Design Thinking', 'Wireframing',
+  'Qualitative & Quantitative Research', 'High-Fidelity Prototypes',
+  'Usability Testing', 'Personas', 'Accessibility (WCAG)',
+  'Design Systems', 'Heuristic Evaluation', 'Comparative Analysis',
+]
+
+const tools = [
+  { cat: 'Design',        list: 'Figma · FigJam · Miro · Maze · Adobe Creative Suite' },
+  { cat: 'Development',   list: 'HTML · CSS · Sass · JavaScript · Bootstrap · WordPress · Webflow · Git · Python (studying) · React (studying)' },
+  { cat: 'AI & workflow', list: 'Claude Code · Figma Make · Google Stitch · Notion · Jira' },
 ]
 ---
-<BaseLayout title="About — Babi Lourenço" description="About Barbara Lourenço, Product & UX/UI Designer based in Longueuil, QC.">
+<BaseLayout title="About — Babi Lourenço" description="About Barbara Lourenço, Product Designer and Front-End Developer based in Montreal.">
   <div class="max-w-5xl mx-auto px-6 pt-16 pb-24">
-    <h1 class="font-serif text-5xl font-semibold mb-16">about</h1>
+
+    <!-- Hero quote -->
+    <div class="mb-20 max-w-2xl">
+      <p class="font-serif text-2xl sm:text-3xl font-semibold leading-snug mb-4">
+        I've always lived between design and code.
+      </p>
+      <p class="text-lg text-[#2C363F] italic leading-relaxed">
+        Ten years in, I've stopped treating that as a split — and started treating it as my superpower.
+      </p>
+    </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-16">
       <div class="space-y-16">
-        <!-- Bio -->
-        <section>
-          <p class="text-base leading-loose text-[#3a3a3a] max-w-2xl">
-            I'm Barbara Lourenço, a Product & UX/UI Designer based in Longueuil, QC. With a multidisciplinary background in multimedia, web design, and frontend development, I create digital experiences that are intuitive, accessible, and visually thoughtful. I've worked with agencies, startups, and product companies in Brazil and Canada. My strengths include building scalable design systems, refining user journeys, and designing interfaces that balance clarity and creativity. After a recent maternity leave, I'm now looking for new opportunities in Product & UX Design while also exploring my artistic side through photography. I bring empathy, strategy, and a multidisciplinary lens to everything I design.
-          </p>
-        </section>
 
-        <!-- Beyond Work -->
+        <!-- The short story -->
         <section>
-          <h2 class="font-serif text-2xl font-semibold mb-5">beyond work</h2>
-          <div class="flex flex-wrap gap-2">
-            {beyondWork.map(tag => (
-              <span class="text-sm px-3 py-1.5 border border-[#e0ddd8] text-[#6b6b6b]">{tag}</span>
-            ))}
+
+          <div class="space-y-4 text-sm text-[#3a3a3a] leading-loose max-w-2xl">
+            <p>
+              I'm Barbara (everyone calls me Babi), a Brazilian designer and developer now based in Montreal. I started my career as a front-end developer in digital agencies, hand-coding responsive promotional pages for enterprise clients like Grupo Boticário. That's where I learned early that <em>pixel-perfect</em> isn't a preference — it's respect. Respect for the user, for the designer, and for the work.
+            </p>
+            <p>
+              A few years in, curiosity pulled me toward UX. I spent four years as a Product Designer leading research, building design systems in Figma, and collaborating closely with engineers to turn complex product needs into clear, usable interfaces.
+            </p>
+            <p>
+              Today I bring both skill sets to every project. Design shapes how I write code; code shapes how I design. It's the same conversation, just in different languages.
+            </p>
           </div>
         </section>
 
-        <!-- Skills -->
-        <Skills />
+        <!-- How I work -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold mb-5">How I work</h2>
+          <div class="space-y-5 max-w-2xl">
+            <div class="border-l-2 border-[#E16F7C] pl-5">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-[#E16F7C] mb-1">Design with empathy, ship with precision</h3>
+              <p class="text-sm text-[#2C363F] leading-relaxed">Code should respect the user experience in every state, every breakpoint, every detail — and good design systems are how teams scale without losing their soul.</p>
+            </div>
+            <div class="border-l-2 border-[#E16F7C] pl-5">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-[#E16F7C] mb-1">Accessibility is not optional</h3>
+              <p class="text-sm text-[#2C363F] leading-relaxed">WCAG-certified and genuinely convinced that accessible products are simply better products.</p>
+            </div>
+            <div class="border-l-2 border-[#E16F7C] pl-5">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-[#E16F7C] mb-1">AI as collaborator, not shortcut</h3>
+              <p class="text-sm text-[#2C363F] leading-relaxed">Tools like Claude Code let me move from wireframes to working code without losing the craft. AI doesn't replace the thinking — it gives me more room to do it well.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Tools of the trade -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold mb-5">Tools of the trade</h2>
+          <dl class="grid grid-cols-[max-content_1fr] gap-x-8 gap-y-3 max-w-2xl">
+            {tools.map(({ cat, list }) => (
+              <>
+                <dt class="text-xs font-semibold uppercase tracking-widest text-[#E16F7C] self-start pt-0.5">{cat}</dt>
+                <dd class="text-sm text-[#2C363F]">{list}</dd>
+              </>
+            ))}
+          </dl>
+        </section>
+
+        <!-- Core UX Skills -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold mb-5">Core UX Skills</h2>
+          <ul class="grid grid-cols-2 gap-2">
+            {skills.map(s => (
+              <li class="text-sm text-[#2C363F]">— {s}</li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Outside the screen -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold mb-3">Outside the screen</h2>
+          <p class="text-sm text-[#2C363F] leading-relaxed max-w-xl">
+            I also run <a href="https://www.babiloure.com/" target="_blank" rel="noopener" class="font-semibold underline underline-offset-2 hover:text-[#E16F7C] transition-colors">Babi Loure Photography</a>, a practice focused on families, newborns, and motherhood storytelling. It started during my postpartum, when I began photographing with my son in my arms — an experience that reshaped how I see creative work. It keeps me grounded in what I care about most in any project: people first.
+          </p>
+
+          <h3 class="text-xs font-semibold uppercase tracking-widest text-[#E16F7C] mt-10 mb-3">who I am, beyond work</h3>
+          <div class="flex flex-wrap gap-2 mb-12">
+            {beyondWork.map(tag => (
+              <span class="text-sm px-3 py-1.5 border border-[#e0ddd8] text-[#2C363F] cursor-default transition-all duration-200 hover:border-[#E16F7C] hover:italic">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <!-- Profile photo -->
+          <div class="max-w-2xl">
+            <img
+              src="/assets/babi-profile.jpg"
+              alt="Babi Lourenço"
+              class="w-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+            />
+          </div>
+        </section>
+
       </div>
 
-      <!-- Side CTA -->
-      <div class="lg:pt-2">
+      <!-- Side panel -->
+      <div>
         <div class="sticky top-24 space-y-6">
-          <div class="border border-[#e0ddd8] p-6 space-y-4">
-            <p class="text-sm text-[#6b6b6b] leading-relaxed">
-              Open to new opportunities in Product & UX Design in Canada.
+          <div class="border border-[#e0ddd8] p-6 space-y-5">
+            <div class="space-y-1 text-sm text-[#2C363F]">
+              <p class="font-medium text-[#1a1a1a]">Based in Montreal</p>
+              <p>English · Français · Português</p>
+            </div>
+            <p class="text-sm text-[#2C363F] leading-relaxed">
+              <span class="font-serif font-light italic">Designing + building digital experiences.</span><br />
+              Open to roles in Product, UX/UI & Front-End.
             </p>
             <div class="space-y-2">
               <a
@@ -56,12 +149,28 @@ const beyondWork = [
                 Get in touch
               </a>
               <a
-                href="https://linkedin.com/in/barbaralourenco"
+                href="https://linkedin.com/in/babilourenco"
                 target="_blank"
                 rel="noopener"
                 class="block w-full text-center px-4 py-2.5 border border-[#1a1a1a] text-sm font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors"
               >
                 LinkedIn ↗
+              </a>
+              <a
+                href="https://github.com/lourework"
+                target="_blank"
+                rel="noopener"
+                class="block w-full text-center px-4 py-2.5 border border-[#1a1a1a] text-sm font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors"
+              >
+                GitHub ↗
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1ulmNJgsgWb_F0uNBbFBwGC8nOPQ_4ghf/view?usp=sharing"
+                target="_blank"
+                rel="noopener"
+                class="block w-full text-center px-4 py-2.5 border border-[#1a1a1a] text-sm font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors"
+              >
+                Resume ↗
               </a>
             </div>
           </div>

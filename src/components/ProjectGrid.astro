@@ -8,15 +8,34 @@ interface Props {
 
 const { projects } = Astro.props
 ---
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
-  {projects.map(p => (
-    <ProjectCard
-      client:load
-      slug={p.slug}
-      title={p.title}
-      category={p.category}
-      shortDescription={p.shortDescription}
-      coverImage={p.coverImage}
-    />
+<div class="project-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-14">
+  {projects.map((p, i) => (
+    <div class="card-wrapper" style={`--i: ${i}`}>
+      <ProjectCard
+        client:load
+        slug={p.slug}
+        title={p.title}
+        category={p.category}
+        shortDescription={p.shortDescription}
+        coverImage={p.coverImage}
+      />
+    </div>
   ))}
 </div>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+
+  document.querySelectorAll('.card-wrapper').forEach(el => observer.observe(el))
+</script>
+

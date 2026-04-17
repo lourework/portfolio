@@ -38,7 +38,7 @@ export default function ProjectFilter({ projects }: Props) {
             className={`px-4 py-1.5 text-sm font-medium transition-colors ${
               active === tab
                 ? 'bg-[#1a1a1a] text-white'
-                : 'text-[#6b6b6b] hover:text-[#1a1a1a]'
+                : 'text-[#2C363F] hover:text-[#1a1a1a]'
             }`}
           >
             {tab}
@@ -47,35 +47,46 @@ export default function ProjectFilter({ projects }: Props) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
-        {filtered.map(p => (
-          <a key={p.slug} href={`/work/${p.slug}`} className="group block">
-            <div className="overflow-hidden bg-[#eeecea] aspect-[4/3] mb-4">
-              {p.coverImage ? (
-                <img
-                  src={p.coverImage}
-                  alt={p.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-[#c8a882] font-serif text-2xl italic">
-                  {p.title.charAt(0)}
-                </div>
-              )}
-            </div>
-            <div className="space-y-1">
-              <div className="flex gap-2 flex-wrap">
-                {p.category.map(cat => (
-                  <span key={cat} className="text-xs text-[#6b6b6b] uppercase tracking-widest">
-                    {cat}
-                  </span>
-                ))}
+        {filtered.map((p, i) => (
+          <div
+            key={active + p.slug}
+            className="card-wrapper is-visible"
+            style={{ '--i': i } as React.CSSProperties}
+          >
+            <a href={`/work/${p.slug}`} className="card block">
+              <div className="card-image overflow-hidden bg-[#eeecea] aspect-[4/3] mb-4">
+                {p.coverImage ? (
+                  <div className="card-img-wrap w-full h-full">
+                    <img
+                      src={p.coverImage}
+                      alt={p.title}
+                      className="card-img w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-[#E16F7C] font-serif text-2xl italic">
+                    {p.title.charAt(0)}
+                  </div>
+                )}
               </div>
-              <h3 className="font-serif text-lg font-semibold leading-snug group-hover:text-[#c8a882] transition-colors duration-200">
-                {p.title}
-              </h3>
-              <p className="text-sm text-[#6b6b6b] leading-relaxed line-clamp-2">{p.shortDescription}</p>
-            </div>
-          </a>
+              <div className="space-y-2">
+                <div className="card-tags flex gap-2 flex-wrap">
+                  {p.category.map(cat => (
+                    <span
+                      key={cat}
+                      className="text-xs px-2.5 py-1 border border-[#e0ddd8] text-[#2C363F] cursor-default transition-all duration-200 hover:border-[#E16F7C] hover:italic"
+                    >
+                      {cat}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="card-title font-serif text-lg font-semibold leading-snug">
+                  {p.title}
+                </h3>
+                <p className="card-desc text-sm text-[#2C363F] leading-relaxed line-clamp-2">{p.shortDescription}</p>
+              </div>
+            </a>
+          </div>
         ))}
       </div>
     </div>

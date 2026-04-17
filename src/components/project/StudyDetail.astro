@@ -12,7 +12,7 @@ const { project: p } = Astro.props
   <header class="mb-16">
     <div class="flex gap-2 flex-wrap mb-4">
       {p.category.map(cat => (
-        <span class="text-xs text-[#6b6b6b] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+        <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
       ))}
     </div>
     <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight">{p.title}</h1>
@@ -156,7 +156,7 @@ const { project: p } = Astro.props
       <h2 class="font-serif text-2xl font-semibold mb-4">Usability Tests</h2>
       <ul class="space-y-2 max-w-2xl">
         {p.usabilityTests.map(item => (
-          <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#c8a882] mt-1">→</span>{item}</li>
+          <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{item}</li>
         ))}
       </ul>
     </section>

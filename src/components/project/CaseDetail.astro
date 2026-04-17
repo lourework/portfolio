@@ -13,16 +13,16 @@ const { project: p } = Astro.props
   <header class="mb-16">
     <div class="flex gap-2 flex-wrap mb-4">
       {p.category.map(cat => (
-        <span class="text-xs text-[#6b6b6b] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+        <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
       ))}
     </div>
     <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-6">{p.title}</h1>
     <dl class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
-      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Role</dt><dd>{p.role}</dd></div>
-      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Product</dt><dd>{p.product}</dd></div>
-      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Platform</dt><dd>{p.platform}</dd></div>
-      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Duration</dt><dd>{p.duration}</dd></div>
-      <div><dt class="text-[#6b6b6b] uppercase tracking-widest text-xs mb-1">Focus</dt><dd>{p.focus}</dd></div>
+      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Role</dt><dd>{p.role}</dd></div>
+      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Product</dt><dd>{p.product}</dd></div>
+      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Platform</dt><dd>{p.platform}</dd></div>
+      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Duration</dt><dd>{p.duration}</dd></div>
+      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Focus</dt><dd>{p.focus}</dd></div>
     </dl>
   </header>
 
@@ -49,7 +49,7 @@ const { project: p } = Astro.props
     <section class="mb-14">
       <h2 class="font-serif text-2xl font-semibold mb-4">Goals</h2>
       <ul class="space-y-2 max-w-2xl">
-        {p.goals.map(g => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#c8a882] mt-1">→</span>{g}</li>)}
+        {p.goals.map(g => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{g}</li>)}
       </ul>
     </section>
   )}
@@ -59,7 +59,7 @@ const { project: p } = Astro.props
     <section class="mb-14">
       <h2 class="font-serif text-2xl font-semibold mb-4">My Role</h2>
       <ul class="space-y-2 max-w-2xl">
-        {p.myRole.map(r => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#c8a882] mt-1">→</span>{r}</li>)}
+        {p.myRole.map(r => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{r}</li>)}
       </ul>
     </section>
   )}
@@ -71,7 +71,7 @@ const { project: p } = Astro.props
       <ol class="space-y-2 max-w-2xl">
         {p.process.map((step, i) => (
           <li class="flex gap-3 text-[#3a3a3a]">
-            <span class="text-[#c8a882] font-medium min-w-[1.5rem]">{i + 1}.</span>
+            <span class="text-[#E16F7C] font-medium min-w-[1.5rem]">{i + 1}.</span>
             {step}
           </li>
         ))}
@@ -109,7 +109,7 @@ const { project: p } = Astro.props
     <section class="mb-14">
       <h2 class="font-serif text-2xl font-semibold mb-4">Impact & Outcome</h2>
       <ul class="space-y-2 max-w-2xl">
-        {p.impact.map(item => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#c8a882] mt-1">✦</span>{item}</li>)}
+        {p.impact.map(item => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">✦</span>{item}</li>)}
       </ul>
     </section>
   )}
