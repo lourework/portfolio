@@ -8,12 +8,12 @@ interface Props {
 
 export default function ProjectCard({ slug, title, category, shortDescription, coverImage }: Props) {
   return (
-    <a href={`/work/${slug}`} className="card block">
+    <a href={`${import.meta.env.BASE_URL}work/${slug}`} className="card block">
       <div className="card-image overflow-hidden bg-[#eeecea] aspect-[4/3] mb-4">
         {coverImage ? (
           <div className="card-img-wrap w-full h-full">
           <img
-            src={coverImage}
+            src={`${import.meta.env.BASE_URL}${coverImage.replace(/^\//, '')}`}
             alt={title}
             className="card-img w-full h-full object-cover"
           /></div>

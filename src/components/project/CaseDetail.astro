@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { project: p } = Astro.props
+const base = import.meta.env.BASE_URL
 
 const tocItems: { id: string; label: string }[] = []
 if (p.overview) tocItems.push({ id: 'overview', label: 'Overview' })
@@ -95,7 +96,7 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
     <!-- Cover -->
     {p.coverImage && (
       <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
-        <img src={p.coverImage} alt={p.title} class="w-full h-full object-cover" />
+        <img src={`${base}${p.coverImage.replace(/^\//, '')}`} alt={p.title} class="w-full h-full object-cover" />
       </div>
     )}
 
@@ -174,7 +175,7 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                   {sol.images.map(img => (
                     <div class="bg-[#eeecea] overflow-hidden">
-                      <img src={img} alt={sol.title} class="w-full h-full object-cover" />
+                      <img src={`${base}${img.replace(/^\//, '')}`} alt={sol.title} class="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>

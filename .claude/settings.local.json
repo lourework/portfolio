@@ -10,7 +10,14 @@
       "Bash(npm run *)",
       "Bash(awk '{print $5, $9}')",
       "Bash(curl -sL \"https://prod-files-secure.s3.us-west-2.amazonaws.com/e8796282-81d2-4727-bfc3-12bc5bab1ebe/702be33d-44cf-43da-9629-c2afef66d6a6/Frame_1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466VIDUWH3B%2F20260417%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260417T135841Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEA0aCXVzLXdlc3QtMiJHMEUCIQDjhwiG9JhGl7SCM6DfBXM1350tcs1daWeh%2BvDE3%2Fv%2BgwIgYsIyDE4SaaYlfxKGen1pKr01inJ3naLIWxX6CFemeWcqiAQI1v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDDbGqysrE7%2Fq9HiTqSrcA2M7wgRiwKv59Skjy4fdUh2LcopyLWRQeAwN%2Fm7rZDdEk7JCzel%2BcaW64y14P5hu%2FDrFELLLlsterd4WLKy19o%2B3US69k6ORTRT73YKxrBjcXb%2F8Sc43hsjPjVjhKfQRutX0cwjxGLvH0Pz5xS3MkXhHHqNqWYKBuSbqik%2FxAJu3fC5agPeafRyfrZR4KR%2Fiq12ggJkqZsuPxnOIlZn%2F%2Bi%2B8HwXq6G7bafLB4zoFxu41rMRv6yr7nc0UC2NsPiNDSEEui9PFPAG1Co9KvkMXq0MVVDlcfLW0M%2BmquNAME1l0GA6YOI%2FnpeU4kc2c2eMjbL1lYo%2FPzQOgAMnU%2BKVkxYKV1Ar8TnNUKt7hHJMF%2BkoyFQRRHyqpi%2B7WU5E2EYvjM1h3%2BDfa7j%2B5iIxQLanHrUDra8PmvhEHoX%2Fhm%2BVkBPjXbGIDQ%2FXV8fVzKC3KXfw1t8bDbT7JAs55mSmmelqgnNvMVQwQ0WvKae%2BQLF1d%2BnvEtn4QvpZoGLjL%2FzlR0SLqJd7xx88kwhFwpbXmpX%2FQA3kkIWdcKQN0YFPKPoGFy8nkL8T34rVO3EbcDoWSgosOqH7lzB81eF6xYbqOLGvHVX4YaPjiWk4tkCepWN%2F3EIAVBZ6XRyir2n9yG1ugMMfbiM8GOqUBlI%2FJTMbBHOWeS%2BTJS7XYjd2X4u1p9A9lS6HnCAZ4dJNCPr7gh0MGqZz9g6uluKPrPy49jjBhQlKIJk1gFxDKoCRPyaf1jMAEnO322ynfIsO36M0h2SsLrCq9viIOs1qRVeQts77FIX0484SSSH85rWQ1GH2eqV7rGjN1dEKP7RXR71noOLP07FsVVXruhasNEUVVgPdHp7DL%2FZhZKMCJTMlzrgng&X-Amz-Signature=4daee968872a125ed06e6680777bc7473d8caae862a049f9d8e2311c0f0ca531&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject\" -o /Users/babiloure/Documents/portfolio/public/assets/babi-profile.jpg)",
-      "Bash(xargs sed *)"
+      "Bash(xargs sed *)",
+      "Bash(git push *)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh api *)",
+      "Bash(gh run *)"
     ]
   }
 }

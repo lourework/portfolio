@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { project: p } = Astro.props
+const base = import.meta.env.BASE_URL
 ---
 <article class="max-w-5xl mx-auto px-6 pb-20">
   <header class="mb-16">
@@ -20,7 +21,7 @@ const { project: p } = Astro.props
 
   {p.coverImage && (
     <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
-      <img src={p.coverImage} alt={p.title} class="w-full h-full object-cover" />
+      <img src={`${base}${p.coverImage.replace(/^\//, '')}`} alt={p.title} class="w-full h-full object-cover" />
     </div>
   )}
 
@@ -47,7 +48,7 @@ const { project: p } = Astro.props
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {p.personas.map(persona => (
           <div class="bg-[#eeecea] p-4">
-            <img src={persona.image} alt={persona.title} class="w-full object-cover mb-3" />
+            <img src={`${base}${persona.image.replace(/^\//, '')}`} alt={persona.title} class="w-full object-cover mb-3" />
             <p class="text-sm font-medium">{persona.title}</p>
           </div>
         ))}
@@ -66,7 +67,7 @@ const { project: p } = Astro.props
             <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-4">{ctx.description}</p>
             {ctx.image && (
               <div class="bg-[#eeecea] overflow-hidden">
-                <img src={ctx.image} alt={ctx.title} class="w-full object-cover" />
+                <img src={`${base}${ctx.image.replace(/^\//, '')}`} alt={ctx.title} class="w-full object-cover" />
               </div>
             )}
           </div>
@@ -86,7 +87,7 @@ const { project: p } = Astro.props
             <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-4">{r.content}</p>
             {r.image && (
               <div class="bg-[#eeecea] overflow-hidden">
-                <img src={r.image} alt={r.title} class="w-full object-cover" />
+                <img src={`${base}${r.image.replace(/^\//, '')}`} alt={r.title} class="w-full object-cover" />
               </div>
             )}
           </div>
@@ -104,7 +105,7 @@ const { project: p } = Astro.props
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {p.solutionAlternatives.images.map(img => (
             <div class="bg-[#eeecea] overflow-hidden">
-              <img src={img} alt="Solution alternatives" class="w-full object-cover" />
+              <img src={`${base}${img.replace(/^\//, '')}`} alt="Solution alternatives" class="w-full object-cover" />
             </div>
           ))}
         </div>
@@ -124,7 +125,7 @@ const { project: p } = Astro.props
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {p.solution.images.map(img => (
             <div class="bg-[#eeecea] overflow-hidden">
-              <img src={img} alt="Solution" class="w-full object-cover" />
+              <img src={`${base}${img.replace(/^\//, '')}`} alt="Solution" class="w-full object-cover" />
             </div>
           ))}
         </div>
@@ -141,7 +142,7 @@ const { project: p } = Astro.props
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           {p.wireframes.images.map(img => (
             <div class="bg-[#eeecea] overflow-hidden">
-              <img src={img} alt="Wireframes" class="w-full object-cover" />
+              <img src={`${base}${img.replace(/^\//, '')}`} alt="Wireframes" class="w-full object-cover" />
             </div>
           ))}
         </div>
@@ -171,7 +172,7 @@ const { project: p } = Astro.props
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           {p.prototype.images.map(img => (
             <div class="bg-[#eeecea] overflow-hidden">
-              <img src={img} alt="Prototype" class="w-full object-cover" />
+              <img src={`${base}${img.replace(/^\//, '')}`} alt="Prototype" class="w-full object-cover" />
             </div>
           ))}
         </div>

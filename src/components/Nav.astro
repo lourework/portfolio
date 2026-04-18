@@ -1,14 +1,15 @@
 ---
 const pathname = Astro.url.pathname
+const base = import.meta.env.BASE_URL
 const navLinks = [
-  { href: '/', label: 'home' },
-  { href: '/work', label: 'work' },
-  { href: '/about', label: 'about' },
+  { href: base, label: 'home' },
+  { href: `${base}work`, label: 'work' },
+  { href: `${base}about`, label: 'about' },
 ]
 ---
 <nav class="fixed top-0 left-0 right-0 z-50 bg-[#FBFBF2]/90 backdrop-blur-sm border-b border-[#e0ddd8]">
   <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="font-serif text-lg font-semibold tracking-tight hover:text-[#E16F7C] transition-colors">
+    <a href={base} class="font-serif text-lg font-semibold tracking-tight hover:text-[#E16F7C] transition-colors">
       babi
     </a>
     <ul class="flex gap-8 items-center">
