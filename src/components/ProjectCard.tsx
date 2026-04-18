@@ -26,7 +26,7 @@ export default function ProjectCard({ slug, title, category, shortDescription, c
       <div className="space-y-1">
         <div className="card-tags flex gap-2 flex-wrap">
           {category.map(cat => (
-            <span key={cat} className="text-xs text-[#2C363F] uppercase tracking-widest">
+            <span key={cat} className="text-xs px-2.5 py-1 border border-[#e0ddd8] text-[#2C363F] cursor-default transition-all duration-200 hover:border-[#E16F7C] hover:italic">
               {cat}
             </span>
           ))}

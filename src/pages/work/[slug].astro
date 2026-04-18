@@ -18,10 +18,17 @@ export async function getStaticPaths() {
 const { project } = Astro.props
 ---
 <ProjectLayout title={project.title} description={project.shortDescription}>
-  <ProjectNav currentSlug={project.slug} />
+
+  <div class="max-w-5xl mx-auto px-6 pt-6">
+    <a href="/work" class="inline-flex items-center gap-1.5 text-xs text-[#2C363F] hover:text-[#E16F7C] transition-colors tracking-wide">
+      <span>←</span> work
+    </a>
+  </div>
 
   {project.type === 'case' && <CaseDetail project={project as ProjectCase} />}
   {project.type === 'frontend' && <FrontendDetail project={project as ProjectFrontend} />}
   {project.type === 'ui' && <UIDetail project={project as ProjectUI} />}
   {project.type === 'study' && <StudyDetail project={project as ProjectStudy} />}
+
+  <ProjectNav currentSlug={project.slug} />
 </ProjectLayout>

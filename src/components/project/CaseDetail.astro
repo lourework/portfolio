@@ -7,118 +7,294 @@ interface Props {
 }
 
 const { project: p } = Astro.props
+
+const tocItems: { id: string; label: string }[] = []
+if (p.overview) tocItems.push({ id: 'overview', label: 'Overview' })
+tocItems.push({ id: 'the-problem', label: 'The Problem' })
+if (p.goals?.length > 0) tocItems.push({ id: 'goals', label: 'Goals' })
+if (p.myRole?.length > 0) tocItems.push({ id: 'my-role', label: 'My Role' })
+if (p.process?.length > 0) tocItems.push({ id: 'process', label: 'Process' })
+if (p.solutions?.length > 0) tocItems.push({ id: 'key-solutions', label: 'Key Solutions' })
+if (p.impact?.length > 0) tocItems.push({ id: 'impact', label: 'Impact & Outcome' })
+if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
 ---
-<article class="max-w-5xl mx-auto px-6 pb-20">
-  <!-- Header -->
-  <header class="mb-16">
-    <div class="flex gap-2 flex-wrap mb-4">
-      {p.category.map(cat => (
-        <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
-      ))}
-    </div>
-    <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-6">{p.title}</h1>
-    <dl class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
-      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Role</dt><dd>{p.role}</dd></div>
-      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Product</dt><dd>{p.product}</dd></div>
-      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Platform</dt><dd>{p.platform}</dd></div>
-      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Duration</dt><dd>{p.duration}</dd></div>
-      <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Focus</dt><dd>{p.focus}</dd></div>
-    </dl>
-  </header>
 
-  <!-- Cover -->
-  {p.coverImage && (
-    <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
-      <img src={p.coverImage} alt={p.title} class="w-full h-full object-cover" />
-    </div>
-  )}
+<!-- Full-width hero (original layout) -->
+<header id="project-hero" class="max-w-5xl mx-auto px-6 mb-16 pt-6">
+  <div class="flex gap-2 flex-wrap mb-4">
+    {p.category.map(cat => (
+      <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+    ))}
+  </div>
+  <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-6">{p.title}</h1>
+  <dl class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Role</dt><dd>{p.role}</dd></div>
+    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Product</dt><dd>{p.product}</dd></div>
+    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Platform</dt><dd>{p.platform}</dd></div>
+    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Duration</dt><dd>{p.duration}</dd></div>
+    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Focus</dt><dd>{p.focus}</dd></div>
+  </dl>
+</header>
 
-  <!-- Overview -->
-  <section class="mb-14 max-w-2xl">
-    <p class="text-base leading-relaxed text-[#3a3a3a]">{p.overview}</p>
-  </section>
+<!-- Left Sidebar: fixed, outside the content container -->
+<aside id="project-sidebar" class="flex flex-col justify-between py-10 overflow-y-auto">
 
-  <!-- Problem -->
-  <section class="mb-14">
-    <h2 class="font-serif text-2xl font-semibold mb-4">The Problem</h2>
-    <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl">{p.problem}</p>
-  </section>
-
-  <!-- Goals -->
-  {p.goals.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Goals</h2>
-      <ul class="space-y-2 max-w-2xl">
-        {p.goals.map(g => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{g}</li>)}
-      </ul>
-    </section>
-  )}
-
-  <!-- My Role -->
-  {p.myRole.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">My Role</h2>
-      <ul class="space-y-2 max-w-2xl">
-        {p.myRole.map(r => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{r}</li>)}
-      </ul>
-    </section>
-  )}
-
-  <!-- Process -->
-  {p.process.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Process</h2>
-      <ol class="space-y-2 max-w-2xl">
-        {p.process.map((step, i) => (
-          <li class="flex gap-3 text-[#3a3a3a]">
-            <span class="text-[#E16F7C] font-medium min-w-[1.5rem]">{i + 1}.</span>
-            {step}
-          </li>
-        ))}
-      </ol>
-    </section>
-  )}
-
-  <!-- Key Solutions -->
-  {p.solutions.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-8">Key Solutions</h2>
-      <div class="space-y-16">
-        {p.solutions.map(sol => (
-          <div>
-            <h3 class="font-serif text-xl font-semibold mb-3">{sol.title}</h3>
-            <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{sol.description}</p>
-            {sol.images.length > 0 && (
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                {sol.images.map(img => (
-                  <div class="bg-[#eeecea] overflow-hidden">
-                    <img src={img} alt={sol.title} class="w-full h-full object-cover" />
-                  </div>
-                ))}
-              </div>
-            )}
-            {sol.figmaUrl && <FigmaEmbed url={sol.figmaUrl} title={sol.title} />}
-          </div>
+    <!-- Top: title → tags → meta -->
+    <div>
+      <h2 class="font-serif text-base font-semibold leading-snug mb-3 text-[#1a1a1a]">{p.title}</h2>
+      <div class="flex gap-1 flex-wrap mb-5">
+        {p.category.map(cat => (
+          <span class="text-[8px] text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-1.5 py-0.5">{cat}</span>
         ))}
       </div>
-    </section>
-  )}
+      <dl>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
+          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Role</dt>
+          <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.role}</dd>
+        </div>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
+          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Product</dt>
+          <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.product}</dd>
+        </div>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
+          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Platform</dt>
+          <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.platform}</dd>
+        </div>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
+          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Duration</dt>
+          <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.duration}</dd>
+        </div>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
+          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Focus</dt>
+          <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.focus}</dd>
+        </div>
+      </dl>
+    </div>
 
-  <!-- Impact -->
-  {p.impact.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Impact & Outcome</h2>
-      <ul class="space-y-2 max-w-2xl">
-        {p.impact.map(item => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">✦</span>{item}</li>)}
+    <!-- Bottom: Table of Contents -->
+    <nav aria-label="Page sections" class="mt-10">
+      <ul class="space-y-2">
+        {tocItems.map(item => (
+          <li class="text-right">
+            <a
+              href={`#${item.id}`}
+              class="toc-link text-[11px] text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors leading-snug"
+              data-section={item.id}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
-    </section>
-  )}
+    </nav>
+  </aside>
 
-  <!-- Learnings -->
-  {p.learnings && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Learnings</h2>
-      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl">{p.learnings}</p>
+<!-- Content: centered, aligned with the hero -->
+<article class="max-w-5xl mx-auto px-6 pb-20">
+
+    <!-- Cover -->
+    {p.coverImage && (
+      <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
+        <img src={p.coverImage} alt={p.title} class="w-full h-full object-cover" />
+      </div>
+    )}
+
+    <!-- Overview -->
+    {p.overview && (
+      <section id="overview" class="mb-14 scroll-mt-24">
+        <div class="w-4/5 mx-auto">
+          <p class="text-base leading-relaxed text-[#3a3a3a]">{p.overview}</p>
+        </div>
+      </section>
+    )}
+
+    <!-- Problem -->
+    <section id="the-problem" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto">
+        <h2 class="font-serif text-2xl font-semibold mb-4">The Problem</h2>
+        <p class="text-base leading-relaxed text-[#3a3a3a]">{p.problem}</p>
+      </div>
     </section>
-  )}
-</article>
+
+    <!-- Goals -->
+    {p.goals?.length > 0 && (
+      <section id="goals" class="mb-14 scroll-mt-24">
+        <div class="w-4/5 mx-auto">
+          <h2 class="font-serif text-2xl font-semibold mb-4">Goals</h2>
+          <ul class="space-y-2">
+            {p.goals.map(g => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{g}</li>)}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <!-- My Role -->
+    {p.myRole?.length > 0 && (
+      <section id="my-role" class="mb-14 scroll-mt-24">
+        <div class="w-4/5 mx-auto">
+          <h2 class="font-serif text-2xl font-semibold mb-4">My Role</h2>
+          <ul class="space-y-2">
+            {p.myRole.map(r => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{r}</li>)}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <!-- Process -->
+    {p.process?.length > 0 && (
+      <section id="process" class="mb-14 scroll-mt-24">
+        <div class="w-4/5 mx-auto">
+          <h2 class="font-serif text-2xl font-semibold mb-4">Process</h2>
+          <ol class="space-y-2">
+            {p.process.map((step, i) => (
+              <li class="flex gap-3 text-[#3a3a3a]">
+                <span class="text-[#E16F7C] font-medium min-w-[1.5rem]">{i + 1}.</span>
+                {step}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )}
+
+    <!-- Key Solutions -->
+    {p.solutions?.length > 0 && (
+      <section id="key-solutions" class="mb-14 scroll-mt-24">
+        <div class="w-4/5 mx-auto mb-8">
+          <h2 class="font-serif text-2xl font-semibold">Key Solutions</h2>
+        </div>
+        <div class="space-y-16">
+          {p.solutions.map(sol => (
+            <div>
+              <div class="w-4/5 mx-auto mb-6">
+                <h3 class="font-serif text-xl font-semibold mb-3">{sol.title}</h3>
+                <p class="text-base leading-relaxed text-[#3a3a3a]">{sol.description}</p>
+              </div>
+              {sol.images?.length > 0 && (
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  {sol.images.map(img => (
+                    <div class="bg-[#eeecea] overflow-hidden">
+                      <img src={img} alt={sol.title} class="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+              )}
+              {sol.figmaUrl && <FigmaEmbed url={sol.figmaUrl} title={sol.title} />}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Impact & Outcome -->
+    {p.impact?.length > 0 && (
+      <section id="impact" class="mb-14 scroll-mt-24">
+        <div class="w-4/5 mx-auto">
+          <h2 class="font-serif text-2xl font-semibold mb-4">Impact & Outcome</h2>
+          <ul class="space-y-2">
+            {p.impact.map(item => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">✦</span>{item}</li>)}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <!-- Learnings -->
+    {p.learnings && (
+      <section id="learnings" class="mb-14 scroll-mt-24">
+        <div class="w-4/5 mx-auto">
+          <h2 class="font-serif text-2xl font-semibold mb-4">Learnings</h2>
+          <p class="text-base leading-relaxed text-[#3a3a3a]">{p.learnings}</p>
+        </div>
+      </section>
+    )}
+
+  </article>
+
+<style>
+  #project-sidebar {
+    display: none;
+    position: fixed;
+    top: 4rem;
+    left: 1.5rem;
+    /* fills the left gutter: from 1.5rem to where max-w-5xl content begins, minus a 1rem gap */
+    width: calc(50% - 32rem - 1.5rem - 1rem);
+    height: calc(100vh - 4rem);
+    clip-path: inset(0 0 100% 0);
+    pointer-events: none;
+    transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Only show when viewport is wide enough for sidebar not to overlap content */
+  @media (min-width: 1440px) {
+    #project-sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  #project-sidebar.is-visible {
+    clip-path: inset(0 0 0% 0);
+    pointer-events: auto;
+  }
+
+  .toc-link.is-active {
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+  .toc-link.is-active::before {
+    content: '— ';
+    color: #E16F7C;
+  }
+</style>
+
+<script>
+  const sidebar = document.getElementById('project-sidebar')
+  const hero = document.getElementById('project-hero')
+
+  const boundary = document.getElementById('project-nav')
+
+  function clampSidebar() {
+    if (!sidebar || !boundary) return
+    const boundaryTop = boundary.getBoundingClientRect().top
+    const navHeight = 64
+    if (boundaryTop < window.innerHeight) {
+      sidebar.style.height = `${Math.max(0, boundaryTop - navHeight)}px`
+    } else {
+      sidebar.style.height = 'calc(100vh - 4rem)'
+    }
+  }
+
+  if (sidebar && hero) {
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        sidebar.classList.toggle('is-visible', !entry.isIntersecting)
+      },
+      { threshold: 0 }
+    )
+    heroObserver.observe(hero)
+  }
+
+  window.addEventListener('scroll', clampSidebar, { passive: true })
+  clampSidebar()
+
+  const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link')
+  const sections = document.querySelectorAll<HTMLElement>('section[id]')
+
+  const setActive = (id: string) => {
+    links.forEach(l => l.classList.remove('is-active'))
+    const active = document.querySelector<HTMLAnchorElement>(`.toc-link[data-section="${id}"]`)
+    active?.classList.add('is-active')
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id)
+      })
+    },
+    { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
+  )
+
+  sections.forEach(s => observer.observe(s))
+</script>
