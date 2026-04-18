@@ -25,10 +25,44 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   </head>
   <body class="min-h-screen flex flex-col">
+    <div id="cursor" aria-hidden="true"></div>
     <Nav />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
+
+    <script>
+      const cursor = document.getElementById('cursor')!
+      let mouseX = -100, mouseY = -100
+      let curX = -100, curY = -100
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX
+        mouseY = e.clientY
+      })
+
+      const interactiveSelector = 'a, button, [role="button"], label, input, select, textarea, [tabindex]'
+
+      document.addEventListener('mouseover', (e) => {
+        if ((e.target as Element).closest(interactiveSelector)) {
+          cursor.classList.add('cursor--hover')
+        }
+      })
+
+      document.addEventListener('mouseout', (e) => {
+        if ((e.target as Element).closest(interactiveSelector)) {
+          cursor.classList.remove('cursor--hover')
+        }
+      })
+
+      function tick() {
+        curX += (mouseX - curX) * 0.12
+        curY += (mouseY - curY) * 0.12
+        cursor.style.transform = `translate(${curX}px, ${curY}px)`
+        requestAnimationFrame(tick)
+      }
+      tick()
+    </script>
   </body>
 </html>

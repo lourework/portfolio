@@ -30,6 +30,38 @@
   }
 }
 
+/* ── Custom cursor ── */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+
+  #cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    border-radius: 50%;
+    background-color: #E16F7C;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                height 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                margin 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.2s ease;
+  }
+
+  #cursor.cursor--hover {
+    width: 36px;
+    height: 36px;
+    margin-left: -18px;
+    margin-top: -18px;
+    opacity: 0.55;
+  }
+}
+
 /* ── Card animation keyframes ── */
 @keyframes cardEntrance {
   from { opacity: 0; transform: translateY(28px); }
