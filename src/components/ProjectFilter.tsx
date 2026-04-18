@@ -53,12 +53,12 @@ export default function ProjectFilter({ projects }: Props) {
             className="card-wrapper is-visible"
             style={{ '--i': i } as React.CSSProperties}
           >
-            <a href={`/work/${p.slug}`} className="card block">
+            <a href={`${import.meta.env.BASE_URL}/work/${p.slug}`.replace(/\/+/g, '/')} className="card block">
               <div className="card-image overflow-hidden bg-[#eeecea] aspect-[4/3] mb-4">
                 {p.coverImage ? (
                   <div className="card-img-wrap w-full h-full">
                     <img
-                      src={p.coverImage}
+                      src={`${import.meta.env.BASE_URL}/${p.coverImage.replace(/^\//, '')}`.replace(/\/+/g, '/')}
                       alt={p.title}
                       className="card-img w-full h-full object-cover"
                     />
