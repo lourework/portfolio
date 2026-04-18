@@ -12,11 +12,30 @@ import { url } from '../utils/url'
     animation: blink 3.5s infinite;
     transform-origin: center 60%;
   }
+
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+  .typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.85em;
+    background: currentColor;
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: cursor-blink 0.75s step-start infinite;
+  }
+  .typewriter-cursor.typing {
+    animation: none;
+    opacity: 1;
+  }
 </style>
 <section class="max-w-5xl mx-auto px-6 pt-20 pb-24 text-center">
   <div class="w-full">
     <h1 class="font-serif text-5xl sm:text-6xl font-semibold leading-tight mb-5">
-      Hi, I'm <span class="text-[#E16F7C]">Babi</span>. <span class="blink-face">ツ</span>
+      <span id="typewriter-text"></span><span class="typewriter-cursor" id="typewriter-cursor"></span>
+      <span class="text-[#E16F7C]">Babi</span>. <span class="blink-face">ツ</span>
     </h1>
     <p class="text-xl text-[#3a3a3a] leading-relaxed mb-8 w-[90%] mx-auto">
       A Product Designer and Front-End Developer based in Montreal, building digital products that feel as good as they look — and hold up in the code.
@@ -61,3 +80,49 @@ import { url } from '../utils/url'
     </div>
   </div>
 </section>
+
+<script>
+  const phrases = ["Hi, I'm", "Bonjour, je suis", "Olá, eu sou a"]
+  const el = document.getElementById('typewriter-text')!
+  const cursor = document.getElementById('typewriter-cursor')!
+
+  const TYPE_SPEED = 80
+  const DELETE_SPEED = 45
+  const PAUSE_AFTER_TYPE = 2000
+  const PAUSE_BEFORE_TYPE = 300
+
+  let phraseIndex = 0
+  let charIndex = 0
+  let deleting = false
+
+  function tick() {
+    const phrase = phrases[phraseIndex]
+
+    if (!deleting) {
+      cursor.classList.add('typing')
+      el.textContent = phrase.slice(0, ++charIndex)
+
+      if (charIndex === phrase.length) {
+        cursor.classList.remove('typing')
+        deleting = true
+        setTimeout(tick, PAUSE_AFTER_TYPE)
+        return
+      }
+      setTimeout(tick, TYPE_SPEED)
+    } else {
+      cursor.classList.add('typing')
+      el.textContent = phrase.slice(0, --charIndex)
+
+      if (charIndex === 0) {
+        deleting = false
+        phraseIndex = (phraseIndex + 1) % phrases.length
+        cursor.classList.remove('typing')
+        setTimeout(tick, PAUSE_BEFORE_TYPE)
+        return
+      }
+      setTimeout(tick, DELETE_SPEED)
+    }
+  }
+
+  setTimeout(tick, 400)
+</script>

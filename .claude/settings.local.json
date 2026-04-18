@@ -19,7 +19,12 @@
       "Bash(gh api *)",
       "Bash(gh run *)",
       "Bash(node -e \"const p = require\\('./package.json'\\); console.log\\(p.dependencies?.astro || p.devDependencies?.astro\\)\")",
-      "Bash(node -e \" const { createServer } = require\\('vite'\\) // Just check what vite resolves BASE_URL to with base='/portfolio' console.log\\('checking...'\\) \")"
+      "Bash(node -e \" const { createServer } = require\\('vite'\\) // Just check what vite resolves BASE_URL to with base='/portfolio' console.log\\('checking...'\\) \")",
+      "Bash(curl -s http://localhost:4321/portfolio/work)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4322/portfolio/assets/projects/merinio-employee-experience/cover.jpg)",
+      "mcp__notion__notion-search",
+      "Bash(open http://localhost:4321/about)",
+      "Bash(open http://localhost:4321)"
     ]
   }
 }

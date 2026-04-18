@@ -7,7 +7,7 @@ export const uiProjects: ProjectUI[] = [
     category: ['UI', 'SaaS', 'Real Estate'],
     type: 'ui',
     featured: false,
-    coverImage: '/assets/projects/motto-center/cover.jpg',
+    coverImage: '/assets/cover_images/motto-center.png',
     shortDescription: 'UI design for a franchise management center for Motto Mortgage, enabling franchisees to manage their operations and resources.',
     contextNote: 'UI design project for Motto Mortgage — a franchise management platform for mortgage brokers.',
     groups: [
@@ -79,7 +79,7 @@ export const uiProjects: ProjectUI[] = [
     category: ['UI', 'App', 'Culture'],
     type: 'ui',
     featured: false,
-    coverImage: '/assets/projects/mon/cover.jpg',
+    coverImage: '/assets/cover_images/mon.png',
     shortDescription: 'UI design for MON, a cultural discovery app with a bold, editorial visual language.',
     contextNote: 'UI design project created at Matilha Estúdio as UI Designer.',
     groups: [
