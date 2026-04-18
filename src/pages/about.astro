@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { url } from '../utils/url'
 
 const beyondWork = [
   "Oliver's mom 🤍",
@@ -120,7 +121,7 @@ const tools = [
           <!-- Profile photo -->
           <div class="max-w-2xl">
             <img
-              src={`${import.meta.env.BASE_URL}assets/babi-profile.jpg`}
+              src={url('assets/babi-profile.jpg')}
               alt="Babi Lourenço"
               class="w-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
             />

@@ -1,5 +1,6 @@
 ---
 import { allProjects } from '../../data/projects/index'
+import { url } from '../../utils/url'
 
 interface Props {
   currentSlug: string
@@ -12,13 +13,13 @@ const next = idx < allProjects.length - 1 ? allProjects[idx + 1] : null
 ---
 <div id="project-nav" class="max-w-5xl mx-auto px-6 py-16 mt-8 border-t border-[#e0ddd8] flex justify-between gap-8">
   {prev ? (
-    <a href={`${import.meta.env.BASE_URL}work/${prev.slug}`} class="group max-w-xs">
+    <a href={url(`work/${prev.slug}`)} class="group max-w-xs">
       <span class="text-xs text-[#2C363F] uppercase tracking-widest mb-1 block">← Previous</span>
       <span class="font-serif text-base font-semibold group-hover:text-[#E16F7C] transition-colors">{prev.title}</span>
     </a>
   ) : <div />}
   {next ? (
-    <a href={`${import.meta.env.BASE_URL}work/${next.slug}`} class="group max-w-xs text-right ml-auto">
+    <a href={url(`work/${next.slug}`)} class="group max-w-xs text-right ml-auto">
       <span class="text-xs text-[#2C363F] uppercase tracking-widest mb-1 block">Next →</span>
       <span class="font-serif text-base font-semibold group-hover:text-[#E16F7C] transition-colors">{next.title}</span>
     </a>

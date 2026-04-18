@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { project: p } = Astro.props
-const base = import.meta.env.BASE_URL
+import { url } from '../../utils/url'
 ---
 <article class="max-w-5xl mx-auto px-6 pb-20">
   <header class="mb-16">
@@ -24,7 +24,7 @@ const base = import.meta.env.BASE_URL
 
   {p.coverImage && (
     <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
-      <img src={`${base}${p.coverImage.replace(/^\//, '')}`} alt={p.title} class="w-full h-full object-cover" />
+      <img src={url(p.coverImage.replace(/^\//, ''))} alt={p.title} class="w-full h-full object-cover" />
     </div>
   )}
 
@@ -36,7 +36,7 @@ const base = import.meta.env.BASE_URL
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             {group.images.map(img => (
               <div class="bg-[#eeecea] overflow-hidden">
-                <img src={`${base}${img.replace(/^\//, '')}`} alt={group.title} class="w-full h-full object-cover" />
+                <img src={url(img.replace(/^\//, ''))} alt={group.title} class="w-full h-full object-cover" />
               </div>
             ))}
           </div>
