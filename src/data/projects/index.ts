@@ -51,7 +51,7 @@ export interface ProjectUI extends Project {
 export interface ProjectStudy extends Project {
   type: 'study'
   overview: string
-  goal: string
+  goal?: string
   personas?: { title: string; image: string }[]
   userContext?: { title: string; description: string; image?: string }[]
   research?: { title: string; content: string; image?: string }[]

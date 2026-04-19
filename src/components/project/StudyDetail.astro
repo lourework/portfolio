@@ -8,17 +8,66 @@ interface Props {
 
 const { project: p } = Astro.props
 import { url } from '../../utils/url'
+
+const tocItems: { id: string; label: string }[] = []
+if (p.overview) tocItems.push({ id: 'overview', label: 'Overview' })
+if (p.goal) tocItems.push({ id: 'goal', label: 'Project Goal' })
+if (p.personas && p.personas.length > 0) tocItems.push({ id: 'personas', label: 'Users & Personas' })
+if (p.userContext && p.userContext.length > 0) tocItems.push({ id: 'user-context', label: 'User Context' })
+if (p.research && p.research.length > 0) tocItems.push({ id: 'research', label: 'Research' })
+if (p.solutionAlternatives) tocItems.push({ id: 'solution-alternatives', label: 'Solution Alternatives' })
+if (p.solution) tocItems.push({ id: 'solution', label: 'Solution' })
+if (p.wireframes) tocItems.push({ id: 'wireframes', label: 'Wireframes' })
+if (p.usabilityTests && p.usabilityTests.length > 0) tocItems.push({ id: 'usability-tests', label: 'Usability Tests' })
+if (p.prototype) tocItems.push({ id: 'prototype', label: 'Prototype' })
+if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
 ---
-<article class="max-w-5xl mx-auto px-6 pb-20">
-  <header class="mb-16">
-    <div class="flex gap-2 flex-wrap mb-4">
+
+<!-- Hero header -->
+<header id="project-hero" class="max-w-5xl mx-auto px-6 mb-16 pt-6">
+  <div class="flex gap-2 flex-wrap mb-4">
+    {p.category.map(cat => (
+      <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+    ))}
+  </div>
+  <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight">{p.title}</h1>
+</header>
+
+<!-- Sidebar -->
+<aside id="project-sidebar" class="flex flex-col justify-between py-10 overflow-y-auto">
+
+  <!-- Top: title → tags -->
+  <div>
+    <h2 class="font-serif text-base font-semibold leading-snug mb-3 text-[#1a1a1a]">{p.title}</h2>
+    <div class="flex gap-1 flex-wrap mb-5">
       {p.category.map(cat => (
-        <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+        <span class="text-[8px] text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-1.5 py-0.5">{cat}</span>
       ))}
     </div>
-    <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight">{p.title}</h1>
-  </header>
+  </div>
 
+  <!-- Bottom: Table of Contents -->
+  <nav aria-label="Page sections" class="mt-10">
+    <ul class="space-y-2">
+      {tocItems.map(item => (
+        <li class="text-right">
+          <a
+            href={`#${item.id}`}
+            class="toc-link text-[11px] text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors leading-snug"
+            data-section={item.id}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</aside>
+
+<!-- Main content -->
+<article class="max-w-5xl mx-auto px-6 pb-20">
+
+  <!-- Cover -->
   {p.coverImage && (
     <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
       <img src={url(p.coverImage.replace(/^\//, ''))} alt={p.title} class="w-full h-full object-cover" />
@@ -27,29 +76,34 @@ import { url } from '../../utils/url'
 
   <!-- Overview -->
   {p.overview && (
-    <section class="mb-14 max-w-2xl">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Overview</h2>
-      <p class="text-base leading-relaxed text-[#3a3a3a]">{p.overview}</p>
+    <section id="overview" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto">
+        <p class="text-base leading-relaxed text-[#3a3a3a] whitespace-pre-line">{p.overview}</p>
+      </div>
     </section>
   )}
 
   <!-- Goal -->
   {p.goal && (
-    <section class="mb-14 max-w-2xl">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Project Goal</h2>
-      <p class="text-base leading-relaxed text-[#3a3a3a]">{p.goal}</p>
+    <section id="goal" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto">
+        <h2 class="font-serif text-2xl font-semibold mb-4">Project Goal</h2>
+        <p class="text-base leading-relaxed text-[#3a3a3a]">{p.goal}</p>
+      </div>
     </section>
   )}
 
   <!-- Personas -->
   {p.personas && p.personas.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-6">Users & Personas</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <section id="personas" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto mb-6">
+        <h2 class="font-serif text-2xl font-semibold">Users & Personas</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {p.personas.map(persona => (
-          <div class="bg-[#eeecea] p-4">
-            <img src={url(persona.image.replace(/^\//, ''))} alt={persona.title} class="w-full object-cover mb-3" />
-            <p class="text-sm font-medium">{persona.title}</p>
+          <div class="bg-[#eeecea] overflow-hidden">
+            <img src={url(persona.image.replace(/^\//, ''))} alt={persona.title} class="w-full object-cover" />
+            <p class="text-sm font-medium p-4">{persona.title}</p>
           </div>
         ))}
       </div>
@@ -58,13 +112,17 @@ import { url } from '../../utils/url'
 
   <!-- User Context -->
   {p.userContext && p.userContext.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-6">User Context</h2>
+    <section id="user-context" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto mb-6">
+        <h2 class="font-serif text-2xl font-semibold">User Context</h2>
+      </div>
       <div class="space-y-10">
         {p.userContext.map(ctx => (
           <div>
-            <h3 class="font-serif text-lg font-semibold mb-2">{ctx.title}</h3>
-            <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-4">{ctx.description}</p>
+            <div class="w-4/5 mx-auto mb-4">
+              <h3 class="font-serif text-lg font-semibold mb-2">{ctx.title}</h3>
+              <p class="text-base leading-relaxed text-[#3a3a3a]">{ctx.description}</p>
+            </div>
             {ctx.image && (
               <div class="bg-[#eeecea] overflow-hidden">
                 <img src={url(ctx.image.replace(/^\//, ''))} alt={ctx.title} class="w-full object-cover" />
@@ -78,13 +136,17 @@ import { url } from '../../utils/url'
 
   <!-- Research -->
   {p.research && p.research.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-6">Research</h2>
+    <section id="research" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto mb-6">
+        <h2 class="font-serif text-2xl font-semibold">Research</h2>
+      </div>
       <div class="space-y-10">
         {p.research.map(r => (
           <div>
-            <h3 class="font-serif text-lg font-semibold mb-2">{r.title}</h3>
-            <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-4">{r.content}</p>
+            <div class="w-4/5 mx-auto mb-4">
+              <h3 class="font-serif text-lg font-semibold mb-2">{r.title}</h3>
+              <p class="text-base leading-relaxed text-[#3a3a3a]">{r.content}</p>
+            </div>
             {r.image && (
               <div class="bg-[#eeecea] overflow-hidden">
                 <img src={url(r.image.replace(/^\//, ''))} alt={r.title} class="w-full object-cover" />
@@ -98,9 +160,11 @@ import { url } from '../../utils/url'
 
   <!-- Solution Alternatives -->
   {p.solutionAlternatives && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Solution Alternatives</h2>
-      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{p.solutionAlternatives.content}</p>
+    <section id="solution-alternatives" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto mb-6">
+        <h2 class="font-serif text-2xl font-semibold mb-4">Solution Alternatives</h2>
+        <p class="text-base leading-relaxed text-[#3a3a3a]">{p.solutionAlternatives.content}</p>
+      </div>
       {p.solutionAlternatives.images.length > 0 && (
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {p.solutionAlternatives.images.map(img => (
@@ -115,12 +179,14 @@ import { url } from '../../utils/url'
 
   <!-- Solution -->
   {p.solution && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Solution</h2>
-      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-4">{p.solution.concept}</p>
-      {p.solution.branding && (
-        <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{p.solution.branding}</p>
-      )}
+    <section id="solution" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto mb-6">
+        <h2 class="font-serif text-2xl font-semibold mb-4">Solution</h2>
+        <p class="text-base leading-relaxed text-[#3a3a3a]">{p.solution.concept}</p>
+        {p.solution.branding && (
+          <p class="text-base leading-relaxed text-[#3a3a3a] mt-4">{p.solution.branding}</p>
+        )}
+      </div>
       {p.solution.images.length > 0 && (
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {p.solution.images.map(img => (
@@ -135,9 +201,11 @@ import { url } from '../../utils/url'
 
   <!-- Wireframes -->
   {p.wireframes && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Wireframes</h2>
-      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{p.wireframes.description}</p>
+    <section id="wireframes" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto mb-6">
+        <h2 class="font-serif text-2xl font-semibold mb-4">Wireframes</h2>
+        <p class="text-base leading-relaxed text-[#3a3a3a]">{p.wireframes.description}</p>
+      </div>
       {p.wireframes.images.length > 0 && (
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           {p.wireframes.images.map(img => (
@@ -153,21 +221,25 @@ import { url } from '../../utils/url'
 
   <!-- Usability Tests -->
   {p.usabilityTests && p.usabilityTests.length > 0 && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Usability Tests</h2>
-      <ul class="space-y-2 max-w-2xl">
-        {p.usabilityTests.map(item => (
-          <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{item}</li>
-        ))}
-      </ul>
+    <section id="usability-tests" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto">
+        <h2 class="font-serif text-2xl font-semibold mb-4">Usability Tests</h2>
+        <ul class="space-y-2">
+          {p.usabilityTests.map(item => (
+            <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{item}</li>
+          ))}
+        </ul>
+      </div>
     </section>
   )}
 
   <!-- Prototype -->
   {p.prototype && (
-    <section class="mb-14">
-      <h2 class="font-serif text-2xl font-semibold mb-4">High-fidelity Prototype</h2>
-      <p class="text-base leading-relaxed text-[#3a3a3a] max-w-2xl mb-6">{p.prototype.description}</p>
+    <section id="prototype" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto mb-6">
+        <h2 class="font-serif text-2xl font-semibold mb-4">Prototype</h2>
+        <p class="text-base leading-relaxed text-[#3a3a3a]">{p.prototype.description}</p>
+      </div>
       {p.prototype.images.length > 0 && (
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           {p.prototype.images.map(img => (
@@ -180,15 +252,104 @@ import { url } from '../../utils/url'
       {p.prototype.videoUrl && (
         <video src={p.prototype.videoUrl} controls class="w-full mb-6 border border-[#e0ddd8]" />
       )}
-      {p.prototype.figmaUrl && <FigmaEmbed url={p.prototype.figmaUrl} title="High-fidelity prototype" />}
+      {p.prototype.figmaUrl && <FigmaEmbed url={p.prototype.figmaUrl} title="Prototype" />}
     </section>
   )}
 
   <!-- Next Steps -->
   {p.nextSteps && (
-    <section class="mb-14 max-w-2xl">
-      <h2 class="font-serif text-2xl font-semibold mb-4">Next Steps</h2>
-      <p class="text-base leading-relaxed text-[#3a3a3a]">{p.nextSteps}</p>
+    <section id="next-steps" class="mb-14 scroll-mt-24">
+      <div class="w-4/5 mx-auto">
+        <h2 class="font-serif text-2xl font-semibold mb-4">Next Steps</h2>
+        <p class="text-base leading-relaxed text-[#3a3a3a]">{p.nextSteps}</p>
+      </div>
     </section>
   )}
+
 </article>
+
+<style>
+  #project-sidebar {
+    display: none;
+    position: fixed;
+    top: 4rem;
+    left: 1.5rem;
+    width: calc(50% - 32rem - 1.5rem - 1rem);
+    height: calc(100vh - 4rem);
+    clip-path: inset(0 0 100% 0);
+    pointer-events: none;
+    transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (min-width: 1440px) {
+    #project-sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  #project-sidebar.is-visible {
+    clip-path: inset(0 0 0% 0);
+    pointer-events: auto;
+  }
+
+  .toc-link.is-active {
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+  .toc-link.is-active::before {
+    content: '— ';
+    color: #E16F7C;
+  }
+</style>
+
+<script>
+  const sidebar = document.getElementById('project-sidebar')
+  const hero = document.getElementById('project-hero')
+  const boundary = document.getElementById('project-nav')
+
+  function clampSidebar() {
+    if (!sidebar || !boundary) return
+    const boundaryTop = boundary.getBoundingClientRect().top
+    const navHeight = 64
+    if (boundaryTop < window.innerHeight) {
+      sidebar.style.height = `${Math.max(0, boundaryTop - navHeight)}px`
+    } else {
+      sidebar.style.height = 'calc(100vh - 4rem)'
+    }
+  }
+
+  if (sidebar && hero) {
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        sidebar.classList.toggle('is-visible', !entry.isIntersecting)
+      },
+      { threshold: 0 }
+    )
+    heroObserver.observe(hero)
+  }
+
+  window.addEventListener('scroll', clampSidebar, { passive: true })
+  clampSidebar()
+
+  const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link')
+  const sections = document.querySelectorAll<HTMLElement>('section[id]')
+
+  const setActive = (id: string) => {
+    links.forEach(l => l.classList.remove('is-active'))
+    const active = document.querySelector<HTMLAnchorElement>(`.toc-link[data-section="${id}"]`)
+    active?.classList.add('is-active')
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id)
+      })
+    },
+    { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
+  )
+
+  sections.forEach(s => observer.observe(s))
+</script>

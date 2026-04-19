@@ -36,7 +36,9 @@
       "Read(//tmp/**)",
       "Bash(pkill -f \"astro dev\")",
       "Bash(open http://localhost:4321/portfolio)",
-      "Bash(find /Users/babiloure/Documents/portfolio/public/assets/projects -name \"cover.jpg\" -delete)"
+      "Bash(find /Users/babiloure/Documents/portfolio/public/assets/projects -name \"cover.jpg\" -delete)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(pkill -f \"npm run dev\")"
     ]
   }
 }

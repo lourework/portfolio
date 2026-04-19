@@ -219,21 +219,12 @@ export const studyProjects: ProjectStudy[] = [
     type: 'study',
     featured: false,
     coverImage: '/assets/cover_images/meditation-app-ui.png',
-    shortDescription: 'A UI prototyping study exploring calm, immersive visual design for a meditation and mindfulness application.',
-    overview: 'This UI design study was developed during a prototyping bootcamp, with a focus on exploring interaction, motion, and visual clarity in wellness-oriented interfaces.',
-    goal: 'Explore and prototype a meditation app UI that creates genuine calm through considered use of space, typography, color, and micro-interactions.',
-    solution: {
-      concept: 'Using Figma and its Smart Animate functionality, I designed and prototyped a meditation app that simulates guided breathing techniques. The goal was to create a calm, intuitive experience where motion supports rhythm, timing, and user focus — reinforcing breathing patterns through smooth transitions and visual feedback. The study explored how micro-interactions and animation can enhance usability, emotional engagement, and comprehension in mindfulness products without overwhelming the user or distracting from the core experience.',
-      images: [],
-    },
-    wireframes: {
-      description: 'Quick mid-fidelity wireframes to establish layout hierarchy before moving to high-fidelity.',
-      images: [],
-    },
+    shortDescription: 'A UI prototyping study exploring interaction, motion, and visual clarity in wellness-oriented interfaces.',
+    overview: 'This UI design study was developed during a prototyping bootcamp, with a focus on exploring interaction, motion, and visual clarity in wellness-oriented interfaces.\n\nUsing Figma and its Smart Animate functionality, I designed and prototyped a meditation app that simulates guided breathing techniques. The goal was to create a calm, intuitive experience where motion supports rhythm, timing, and user focus, reinforcing breathing patterns through smooth transitions and visual feedback.\n\nThe study explored how micro-interactions and animation can enhance usability, emotional engagement, and comprehension in mindfulness products — without overwhelming the user or distracting from the core experience.',
     prototype: {
-      description: 'A high-fidelity interactive prototype with animated breathing guide, session timer, and ambient sound selection — created using Figma Smart Animate.',
+      description: 'High-fidelity interactive prototype built with Figma Smart Animate.',
+      figmaUrl: 'https://www.figma.com/proto/FrwtvcjGea7Vr0J5zdvDIl/Babi---Bootcamp-Protitipa%C3%A7%C3%A3o-AGO-2021?embed_host=notion&kind=proto&node-id=11-174&page-id=11%3A173&scaling=scale-down&show-proto-sidebar=1&starting-point-node-id=11%3A174&t=5aynHDtGNlXeAy0f-1',
       images: [],
     },
-    nextSteps: 'This study was primarily a visual and prototyping exercise. A full product would require user research into meditation practice patterns and a content strategy for the session library.',
   },
 ]
