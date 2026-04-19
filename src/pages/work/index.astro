@@ -12,9 +12,50 @@ const serialized = allProjects.map(p => ({
   type: p.type,
 }))
 ---
+<style>
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+  .typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.85em;
+    background: currentColor;
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: cursor-blink 0.75s step-start infinite;
+  }
+  .typewriter-cursor.typing {
+    animation: none;
+    opacity: 1;
+  }
+</style>
 <BaseLayout title="Work — Babi Lourenço" description="Portfolio of all projects by Barbara Lourenço, Product & UX/UI Designer.">
   <div class="max-w-5xl mx-auto px-6 pt-16 pb-24">
-    <h1 class="font-serif text-5xl font-semibold mb-16">work</h1>
+    <h1 class="font-serif text-5xl font-semibold mb-16">
+      <span id="work-typewriter-text"></span><span class="typewriter-cursor typing" id="work-typewriter-cursor"></span>
+    </h1>
     <ProjectFilter client:load projects={serialized} />
   </div>
 </BaseLayout>
+
+<script>
+  const text = "Things I've Made"
+  const el = document.getElementById('work-typewriter-text')!
+  const cursor = document.getElementById('work-typewriter-cursor')!
+
+  const TYPE_SPEED = 80
+  let charIndex = 0
+
+  function tick() {
+    el.textContent = text.slice(0, ++charIndex)
+    if (charIndex < text.length) {
+      setTimeout(tick, TYPE_SPEED)
+    } else {
+      cursor.classList.remove('typing')
+    }
+  }
+
+  setTimeout(tick, 400)
+</script>

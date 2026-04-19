@@ -7,20 +7,20 @@ export const uiProjects: ProjectUI[] = [
     category: ['UI', 'SaaS', 'Real Estate'],
     type: 'ui',
     featured: false,
-    coverImage: '/assets/cover_images/motto-center.png',
-    shortDescription: 'UI design for a franchise management center for Motto Mortgage, enabling franchisees to manage their operations and resources.',
-    contextNote: 'UI design project for Motto Mortgage — a franchise management platform for mortgage brokers.',
+    coverImage: '/assets/projects/motto-center/cover.jpg',
+    shortDescription: 'UI design for Motto Center — a franchise management platform for Motto Mortgage brokers.',
+    contextNote: 'Projects made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
       {
-        title: 'Dashboard & Navigation',
+        title: 'Network Connection',
         images: [],
       },
       {
-        title: 'Franchise Management',
+        title: 'Personal Management',
         images: [],
       },
       {
-        title: 'Resource Library',
+        title: 'Event Filter',
         images: [],
       },
     ],
@@ -28,24 +28,26 @@ export const uiProjects: ProjectUI[] = [
   {
     slug: 'cormora',
     title: 'Cormora',
-    category: ['UI', 'App', 'Lifestyle'],
+    category: ['UI', 'App', 'Travel'],
     type: 'ui',
     featured: false,
     coverImage: '/assets/projects/cormora/cover.jpg',
-    shortDescription: 'UI design for Cormora, a lifestyle app concept with a refined, editorial aesthetic.',
-    contextNote: 'UI design project created at Matilha Estúdio.',
+    shortDescription: 'UI design for Cormora — a travel agency system with pop-up flows and redesigned header components.',
+    contextNote: 'Projects made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
       {
-        title: 'Onboarding',
-        images: [],
+        title: 'Pop-ups',
+        images: [
+          '/assets/projects/cormora/Atendimento_Regular.png',
+          '/assets/projects/cormora/Atendimento_Regular-1.png',
+          '/assets/projects/cormora/Oramento_Regular.png',
+        ],
       },
       {
-        title: 'Home & Discovery',
-        images: [],
-      },
-      {
-        title: 'Profile & Settings',
-        images: [],
+        title: 'Header',
+        images: [
+          '/assets/projects/cormora/Frame_35610.png',
+        ],
       },
     ],
   },
@@ -56,20 +58,14 @@ export const uiProjects: ProjectUI[] = [
     type: 'ui',
     featured: false,
     coverImage: '/assets/projects/meuPS/cover.jpg',
-    shortDescription: 'UI design for MeuPS, a personal health tracking application with a clean, accessible interface.',
-    contextNote: 'UI design project created at Matilha Estúdio as UI Designer.',
+    shortDescription: 'UI design for MeuPS — including a custom illustrated 404 page designed from scratch.',
+    contextNote: 'Project made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
       {
-        title: 'Home & Dashboard',
-        images: [],
-      },
-      {
-        title: 'Tracking & Input',
-        images: [],
-      },
-      {
-        title: 'History & Reports',
-        images: [],
+        title: 'Custom 404 Page',
+        images: [
+          '/assets/projects/meuPS/Desktop_-_1.png',
+        ],
       },
     ],
   },
@@ -79,20 +75,12 @@ export const uiProjects: ProjectUI[] = [
     category: ['UI', 'App', 'Culture'],
     type: 'ui',
     featured: false,
-    coverImage: '/assets/cover_images/mon.png',
-    shortDescription: 'UI design for MON, a cultural discovery app with a bold, editorial visual language.',
-    contextNote: 'UI design project created at Matilha Estúdio as UI Designer.',
+    coverImage: '/assets/projects/mon/cover.jpg',
+    shortDescription: 'UI design contributions to the MON museum website redesign.',
+    contextNote: 'Project made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
       {
-        title: 'Home & Feed',
-        images: [],
-      },
-      {
-        title: 'Event Detail',
-        images: [],
-      },
-      {
-        title: 'Saved & Profile',
+        title: 'Website Redesign',
         images: [],
       },
     ],
