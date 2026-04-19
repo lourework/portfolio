@@ -43,6 +43,7 @@ export interface ProjectUI extends Project {
   contextNote: string
   groups: {
     title: string
+    description?: string
     images: string[]
     figmaUrl?: string
   }[]

@@ -32,10 +32,9 @@ export const frontendProjects: ProjectFrontend[] = [
     featured: false,
     coverImage: '/assets/cover_images/frimesa-website.png',
     shortDescription: 'Corporate website for Frimesa, a leading Brazilian food cooperative.',
-    overview: 'Frimesa is one of the largest food cooperatives in southern Brazil. This corporate website project involved full UI design and front-end development, focusing on clear communication of their product portfolio, cooperative values, and institutional information.',
+    overview: 'Corporate website for Frimesa, one of the largest food cooperatives in southern Brazil, focusing on clear communication of their product portfolio, cooperative values, and institutional information.',
     stack: ['HTML', 'CSS', 'PUG', 'JavaScript'],
     images: [
-      '/assets/cover_images/frimesa-website.png',
       '/assets/projects/frimesa-website/friminho-iogurte_3.webp',
     ],
   },
@@ -51,7 +50,6 @@ export const frontendProjects: ProjectFrontend[] = [
     insight: 'Nutritional content doesn\'t have to be clinical. By treating each data point as a character moment, we made healthy information genuinely fun to explore.',
     stack: ['Animation CSS', 'HTML', 'JavaScript'],
     images: [
-      '/assets/cover_images/friminho-iogurte.png',
       '/assets/projects/friminho-iogurte/friminho-iogurte_1.webp',
     ],
   },
@@ -66,7 +64,6 @@ export const frontendProjects: ProjectFrontend[] = [
     overview: 'A companion infographic to the Friminho Iogurte piece, this time for the Friminho Achocolatado (chocolate milk) product. Same playful animation approach, adapted for the chocolate milk brand character and color palette.',
     stack: ['Animation CSS', 'HTML', 'JavaScript'],
     images: [
-      '/assets/cover_images/friminho-achocolatado.png',
       '/assets/projects/friminho-achocolatado/friminho-iogurte_2.webp',
     ],
   },

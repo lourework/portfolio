@@ -13,17 +13,23 @@ export const uiProjects: ProjectUI[] = [
     groups: [
       {
         title: 'Network Connection',
+        description: 'UI design for network connection feature.',
         images: [
           '/assets/cover_images/motto-center.png',
         ],
+        figmaUrl: 'https://www.figma.com/proto/sUq6sT7SLpk4Ohji0pxjVn/Motto?embed_host=notion&kind=proto&node-id=11-9268&page-id=11%3A9267&scaling=scale-down-width&starting-point-node-id=11%3A9268&viewport=43264%2C60190%2C0.56&t=6tLbJ4r9rmolsoMd-1',
       },
       {
         title: 'Personal Management',
+        description: 'UI design for personal management feature.',
         images: [],
+        figmaUrl: 'https://www.figma.com/proto/sUq6sT7SLpk4Ohji0pxjVn/Motto?embed_host=notion&kind=proto&node-id=11-12852&page-id=11%3A9266&scaling=min-zoom&starting-point-node-id=11%3A12852&viewport=801%2C903%2C0.2&t=Khxz0qRO2T9IUfOK-1',
       },
       {
         title: 'Event Filter',
+        description: 'UI design for event filter feature.',
         images: [],
+        figmaUrl: 'https://www.figma.com/proto/sUq6sT7SLpk4Ohji0pxjVn/Motto?embed_host=notion&kind=proto&node-id=11-15059&page-id=1%3A1213&scaling=scale-down-width&show-proto-sidebar=1&starting-point-node-id=11%3A15059&viewport=19111%2C-1206%2C0.19&t=iIiRoEBWd1UsykLj-1',
       },
     ],
   },
@@ -39,8 +45,8 @@ export const uiProjects: ProjectUI[] = [
     groups: [
       {
         title: 'Pop-ups',
+        description: 'Pop-ups for the Cormora travel agency system, in Curitiba. Added at the beginning of each form flow so users understand the purpose and don\'t complete the wrong form.',
         images: [
-          '/assets/cover_images/cormora.png',
           '/assets/projects/cormora/Atendimento_Regular.webp',
           '/assets/projects/cormora/Atendimento_Regular-1.webp',
           '/assets/projects/cormora/Oramento_Regular.webp',
@@ -48,6 +54,7 @@ export const uiProjects: ProjectUI[] = [
       },
       {
         title: 'Header',
+        description: 'Redesigned header component for the Cormora system.',
         images: [
           '/assets/projects/cormora/Frame_35610.webp',
         ],
@@ -66,8 +73,8 @@ export const uiProjects: ProjectUI[] = [
     groups: [
       {
         title: 'Custom 404 Page',
+        description: 'Designed an illustration from scratch for a responsive 404 page.',
         images: [
-          '/assets/cover_images/meuPS.png',
           '/assets/projects/meuPS/Desktop_-_1.webp',
         ],
       },
@@ -85,9 +92,9 @@ export const uiProjects: ProjectUI[] = [
     groups: [
       {
         title: 'Website Redesign',
-        images: [
-          '/assets/cover_images/mon.png',
-        ],
+        description: 'Some pages that I contributed to the MON new website.',
+        images: [],
+        figmaUrl: 'https://www.figma.com/proto/2j8DLRYADpuibF3CPO6yJ7?embed_host=notion&kind=proto&node-id=1%3A2209&page-id=0%3A1&scaling=scale-down-width&viewport=1216%2C594%2C0.05',
       },
     ],
   },

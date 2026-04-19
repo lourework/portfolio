@@ -38,7 +38,10 @@
       "Bash(open http://localhost:4321/portfolio)",
       "Bash(find /Users/babiloure/Documents/portfolio/public/assets/projects -name \"cover.jpg\" -delete)",
       "Bash(pkill -f \"next dev\")",
-      "Bash(pkill -f \"npm run dev\")"
+      "Bash(pkill -f \"npm run dev\")",
+      "Bash(awk -F\"'\" '{print $2}')",
+      "Bash(pkill -f \"astro\")",
+      "Bash(pkill -f \"node.*dev\")"
     ]
   }
 }

@@ -188,7 +188,7 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
         )}
       </div>
       {p.solution.images.length > 0 && (
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class={`grid gap-4 ${p.solution.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
           {p.solution.images.map(img => (
             <div class="bg-[#eeecea] overflow-hidden">
               <img src={url(img.replace(/^\//, ''))} alt="Solution" class="w-full object-cover" />
@@ -207,7 +207,7 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
         <p class="text-base leading-relaxed text-[#3a3a3a]">{p.wireframes.description}</p>
       </div>
       {p.wireframes.images.length > 0 && (
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div class={`grid gap-4 mb-6 ${p.wireframes.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
           {p.wireframes.images.map(img => (
             <div class="bg-[#eeecea] overflow-hidden">
               <img src={url(img.replace(/^\//, ''))} alt="Wireframes" class="w-full object-cover" />
@@ -241,7 +241,7 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
         <p class="text-base leading-relaxed text-[#3a3a3a]">{p.prototype.description}</p>
       </div>
       {p.prototype.images.length > 0 && (
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div class={`grid gap-4 mb-6 ${p.prototype.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
           {p.prototype.images.map(img => (
             <div class="bg-[#eeecea] overflow-hidden">
               <img src={url(img.replace(/^\//, ''))} alt="Prototype" class="w-full object-cover" />
@@ -250,7 +250,9 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
         </div>
       )}
       {p.prototype.videoUrl && (
-        <video src={p.prototype.videoUrl} controls class="w-full mb-6 border border-[#e0ddd8]" />
+        p.prototype.videoUrl.includes('youtube') || p.prototype.videoUrl.includes('youtu.be')
+          ? <div class="w-full aspect-video border border-[#e0ddd8] overflow-hidden mb-6"><iframe src={p.prototype.videoUrl} title="Video" allowfullscreen class="w-full h-full" loading="lazy" /></div>
+          : <video src={p.prototype.videoUrl} controls class="w-full mb-6 border border-[#e0ddd8]" />
       )}
       {p.prototype.figmaUrl && <FigmaEmbed url={p.prototype.figmaUrl} title="Prototype" />}
     </section>

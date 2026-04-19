@@ -65,6 +65,7 @@ export const studyProjects: ProjectStudy[] = [
         '/assets/projects/cozy-psychological-care/rabiscofraes.webp',
         '/assets/projects/cozy-psychological-care/wireframes.webp',
       ],
+      figmaUrl: 'https://www.figma.com/proto/1W5SQJRTy3HsLbBwReLgHn/Prot%C3%B3tipo-de-baixa-fidelidade---Case-App-Psicologia?embed_host=notion&kind=proto&node-id=47-4&page-id=0%3A1&scaling=scale-down&starting-point-node-id=47%3A4&t=KDVKbBI84ZAqHQnF-1',
     },
     usabilityTests: [
       'The form where the person selects their needs lacks a confirmation button',
@@ -74,7 +75,8 @@ export const studyProjects: ProjectStudy[] = [
     prototype: {
       description: 'Applying the improvement solutions identified in the wireframe usability tests and styles, I arrived at the high-fidelity prototype. Cozy was the result of my first UX Design process — I learned to put the user at the center of my decisions and to think how the user would think when using a product.',
       images: [],
-      videoUrl: 'https://www.youtube.com/watch?v=ymiBkkMr-pA',
+      videoUrl: 'https://www.youtube.com/embed/ymiBkkMr-pA?si=oCUWPc819vdyYQKH',
+      figmaUrl: 'https://www.figma.com/proto/1W5SQJRTy3HsLbBwReLgHn/Prot%C3%B3tipo-de-baixa-fidelidade---Case-App-Psicologia?embed_host=notion&kind=proto&node-id=360-1109&page-id=213%3A61&scaling=scale-down&starting-point-node-id=360%3A1109&t=icUee88qZ1sqs4Op-1',
     },
     nextSteps: 'The next step will be to implement payment methods and history for monitoring, both for the patient and the psychologist. I also see the need to expand Cozy to the desktop.',
   },
@@ -148,7 +150,7 @@ export const studyProjects: ProjectStudy[] = [
         '/assets/projects/eva-ux-bootcamp/31c330d0-b04f-42a2-9ee7-53ac9a537a48_rw_600.webp',
         '/assets/projects/eva-ux-bootcamp/dfd00fb9-7b53-4a44-a0e8-ba953655b537_rw_600.webp',
       ],
-      figmaUrl: 'https://www.figma.com/file/OAnKO82lQ9LtwHLfVpK9kT/EVA?node-id=1%3A29',
+      figmaUrl: 'https://www.figma.com/proto/OAnKO82lQ9LtwHLfVpK9kT/EVA?embed_host=notion&kind=proto&node-id=6-3&page-id=1%3A29&scaling=scale-down&starting-point-node-id=276%3A950&t=JfCuARFGE5GuawfC-1',
     },
     nextSteps: 'Future work would focus on expanding the community features, refining the mentorship matching flow, and conducting usability testing with women in different stages of their careers in tech.',
   },
@@ -161,7 +163,7 @@ export const studyProjects: ProjectStudy[] = [
     coverImage: '/assets/cover_images/banco-itau-mobile-redesign.png',
     shortDescription: 'A redesign study of the Banco Itaú mobile app home screen, improving information hierarchy and task access for everyday banking.',
     overview: 'This product design case was developed during a Product Design bootcamp, based on the analysis of real customer feedback collected from complaint platforms and app store reviews. The goal was to identify usability issues within Banco Itaú\'s digital experience and propose a high-impact, feasible improvement.',
-    goal: 'Redesign the home screen to surface the user\'s most important financial information and frequent tasks, reducing promotional noise and cognitive load for everyday banking.',
+    goal: 'Identify usability issues within Banco Itaú\'s digital experience and propose a high-impact, feasible improvement — starting with the home screen organization.',
     research: [
       {
         title: 'Problem Discovery',
@@ -186,7 +188,7 @@ export const studyProjects: ProjectStudy[] = [
       description: 'A high-fidelity prototype using Itaú\'s existing design language, demonstrating the new home, balance reveal interaction, and quick-action customization.',
       images: [],
     },
-    nextSteps: 'Extend the redesign to the transactions and investments sections, and conduct user testing with actual Itaú customers. Small structural changes can have a significant impact on perceived usability — prioritization frameworks help focus design efforts on realistic, high-value improvements.',
+    nextSteps: 'Extend the redesign to the transactions and investments sections, and conduct user testing with actual Itaú customers.\n\nLearnings: Small structural changes can have a significant impact on perceived usability. Prioritization frameworks help focus design efforts on realistic, high-value improvements. Designing for financial products requires balancing business priorities with everyday user needs.',
   },
   {
     slug: 'frais-healthy-recipes',
@@ -202,13 +204,10 @@ export const studyProjects: ProjectStudy[] = [
       concept: 'FRAIS is a recipe app that allows users to search for healthy meals based on the ingredients they already have at home. The concept focuses on simplicity and accessibility, reducing friction in meal planning and promoting more conscious food choices through an intuitive search experience. The project explored interface clarity, content organization, and user-friendly navigation, translating a functional idea into a clean and approachable UI concept.',
       images: [],
     },
-    wireframes: {
-      description: 'Wireframes covering the ingredient-based search flow, recipe matching, and recipe detail pages.',
-      images: [],
-    },
     prototype: {
       description: 'A clean UI prototype exploring how ingredient-based search can make healthy cooking more accessible.',
       images: [],
+      figmaUrl: 'https://www.figma.com/proto/J14YjQpl9jPClmbJhrFKS7/FRAIS?embed_host=notion&kind=proto&node-id=2-2&page-id=0%3A1&scaling=scale-down&starting-point-node-id=2%3A2&t=iKjlPFpCNcmSBRb2-1',
     },
     nextSteps: 'Grocery list integration with delivery platforms, community recipe sharing, and a nutritional tracking layer.',
   },
