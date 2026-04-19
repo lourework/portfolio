@@ -7,13 +7,15 @@ export const uiProjects: ProjectUI[] = [
     category: ['UI', 'SaaS', 'Real Estate'],
     type: 'ui',
     featured: false,
-    coverImage: '/assets/projects/motto-center/cover.jpg',
+    coverImage: '/assets/cover_images/motto-center.png',
     shortDescription: 'UI design for Motto Center — a franchise management platform for Motto Mortgage brokers.',
     contextNote: 'Projects made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
       {
         title: 'Network Connection',
-        images: [],
+        images: [
+          '/assets/cover_images/motto-center.png',
+        ],
       },
       {
         title: 'Personal Management',
@@ -31,22 +33,23 @@ export const uiProjects: ProjectUI[] = [
     category: ['UI', 'App', 'Travel'],
     type: 'ui',
     featured: false,
-    coverImage: '/assets/projects/cormora/cover.jpg',
+    coverImage: '/assets/cover_images/cormora.png',
     shortDescription: 'UI design for Cormora — a travel agency system with pop-up flows and redesigned header components.',
     contextNote: 'Projects made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
       {
         title: 'Pop-ups',
         images: [
-          '/assets/projects/cormora/Atendimento_Regular.png',
-          '/assets/projects/cormora/Atendimento_Regular-1.png',
-          '/assets/projects/cormora/Oramento_Regular.png',
+          '/assets/cover_images/cormora.png',
+          '/assets/projects/cormora/Atendimento_Regular.webp',
+          '/assets/projects/cormora/Atendimento_Regular-1.webp',
+          '/assets/projects/cormora/Oramento_Regular.webp',
         ],
       },
       {
         title: 'Header',
         images: [
-          '/assets/projects/cormora/Frame_35610.png',
+          '/assets/projects/cormora/Frame_35610.webp',
         ],
       },
     ],
@@ -57,14 +60,15 @@ export const uiProjects: ProjectUI[] = [
     category: ['UI', 'App', 'Health'],
     type: 'ui',
     featured: false,
-    coverImage: '/assets/projects/meuPS/cover.jpg',
+    coverImage: '/assets/cover_images/meuPS.png',
     shortDescription: 'UI design for MeuPS — including a custom illustrated 404 page designed from scratch.',
     contextNote: 'Project made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
       {
         title: 'Custom 404 Page',
         images: [
-          '/assets/projects/meuPS/Desktop_-_1.png',
+          '/assets/cover_images/meuPS.png',
+          '/assets/projects/meuPS/Desktop_-_1.webp',
         ],
       },
     ],
@@ -75,13 +79,15 @@ export const uiProjects: ProjectUI[] = [
     category: ['UI', 'App', 'Culture'],
     type: 'ui',
     featured: false,
-    coverImage: '/assets/projects/mon/cover.jpg',
+    coverImage: '/assets/cover_images/mon.png',
     shortDescription: 'UI design contributions to the MON museum website redesign.',
     contextNote: 'Project made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
       {
         title: 'Website Redesign',
-        images: [],
+        images: [
+          '/assets/cover_images/mon.png',
+        ],
       },
     ],
   },

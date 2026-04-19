@@ -26,7 +26,17 @@
       "Bash(open http://localhost:4321/about)",
       "Bash(open http://localhost:4321)",
       "Bash(grep -E \"\\(md|json|yaml|yml\\)$\")",
-      "Bash(kill 4731 3714)"
+      "Bash(kill 4731 3714)",
+      "Bash(open http://localhost:4322/portfolio)",
+      "Bash(file /Users/babiloure/Documents/portfolio/public/assets/projects/merinio-employee-experience/*)",
+      "Bash(file /Users/babiloure/Documents/portfolio/public/assets/projects/cormora/*.png /Users/babiloure/Documents/portfolio/public/assets/projects/meuPS/*.png)",
+      "Bash(xargs file *)",
+      "Bash(xargs rm *)",
+      "Bash(curl -sL 'https://prod-files-secure.s3.us-west-2.amazonaws.com/e8796282-81d2-4727-bfc3-12bc5bab1ebe/f2870399-8970-4f5b-8fa1-483ca1d4b216/Merinio.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466TR5WNEEI%2F20260419%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260419T152913Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED8aCXVzLXdlc3QtMiJGMEQCIEJhEbNZG03VR5K3t8ZPQ3LilGZEFk%2B7N6HHQCdPtoOaAiA4kMd1TL69ty55iHrxyJgsz5d2%2BQQlbp9dBu%2FaGP%2BSWCr%2FAwgIEAAaDDYzNzQyMzE4MzgwNSIMTTMO2XeRzhcR1BeJKtwDClPOS6w%2FvGe7dbLjjTdBRYRsG0FWY0qSCEHEu3FSgG9oQKqGVMRKV0nDVZXYMUsix%2FVce271fQvgPASOtILlHQOfv4EHK4zlkQTzDg8ycuTy7L2s70nZlxbXLZcXR%2FUVHNr%2BHkiXwDwsqCPJyJtkXwaEGeB4r%2FGIN6L%2Fyyv6lkTz9T%2BSwxFfolSTZ2ZJICcduZxN%2FcsBdRnIg1rvNZDTC0ECla8cRXBlfGtcA4d4jr2yKaKpk90t7mLi6lVTNygeMVXZbYbaJbfjRXYUmSVqk9SZygUC1uTfDKr1waw7iO8YVkV6IQwuRdNEz2pZrj597dKz6XJ7fmxZSSSQQQoT4j%2FzDiiFPITbHQ6mNff2WrBYIWCMZWCkhc1Buk7dSH8%2Bo8n6QUbMcB8Z%2BPMBdyancUm%2B6jF%2BMAfZrJ2iRdfhAKU10EREjfqFXB56Ako010TXKZUxbMneQeSr5sqZ4wx1sGJ08NuOK2WYmth3tMbhwYK%2Bc%2BrFoMek3JMTa10mLbHgH0SPX68aqvYChfi451CmxU9kTo60F3Ny1iAKUvqMowxOiH8eOXRHsf9YfPmPvM8ZyrqyUfQXhaQ%2BUdrFH1wPQUmLkrC%2FUkw7y9qW7nDgb9by5ffNPJluVpDaUigwoMuTzwY6pgFFj9n%2Fn7HzVV%2FdiRtXWRJ9hRzIu9loRs9rxWpieURRUXoPWZ%2BaxZ0wJVMlgM%2F3tQV0RRRD0suPSZ5BpLtuEvh1yz%2F2PERfRe5xrkfFBfREZvStJkZg2qhsjqALdY7Hltb5drh1jV4DcVwoirDr4XRtYHSnsaINh2mD5syPHlMt8MUnG40CKallBrj3UXc83plfSHmV%2FlIJ%2F8VHJ1gMQK3fgEQmRHFY&X-Amz-Signature=1f678c04ee5fe80598ebf74248ed0a96fbd7c389b4978add96c75559f8a32a19&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject' -o /tmp/test_merinio)",
+      "Read(//tmp/**)",
+      "Bash(pkill -f \"astro dev\")",
+      "Bash(open http://localhost:4321/portfolio)",
+      "Bash(find /Users/babiloure/Documents/portfolio/public/assets/projects -name \"cover.jpg\" -delete)"
     ]
   }
 }
