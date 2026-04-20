@@ -10,7 +10,7 @@ const embedUrl = rawUrl.includes('embed_host')
   ? rawUrl
   : `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(rawUrl)}`
 ---
-<div class="w-full aspect-video border border-[#e0ddd8] overflow-hidden my-8">
+<div class="w-full aspect-video border border-[var(--color-border)] overflow-hidden my-8">
   <iframe
     src={embedUrl}
     title={title}

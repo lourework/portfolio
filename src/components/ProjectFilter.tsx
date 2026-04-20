@@ -30,15 +30,15 @@ export default function ProjectFilter({ projects }: Props) {
 
   return (
     <div>
-      <div className="flex gap-1 mb-12 border-b border-[#e0ddd8] pb-4 flex-wrap">
+      <div className="flex gap-1 mb-12 border-b border-[var(--color-border)] pb-4 flex-wrap">
         {TABS.map(tab => (
           <button
             key={tab}
             onClick={() => setActive(tab)}
             className={`px-4 py-1.5 text-sm font-medium transition-colors ${
               active === tab
-                ? 'bg-[#1a1a1a] text-white'
-                : 'text-[#2C363F] hover:text-[#1a1a1a]'
+                ? 'bg-[var(--color-text)] text-white'
+                : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
             }`}
           >
             {tab}
@@ -64,7 +64,7 @@ export default function ProjectFilter({ projects }: Props) {
                     />
                   </div>
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-[#E16F7C] font-serif text-2xl italic">
+                  <div className="w-full h-full flex items-center justify-center text-[var(--color-accent)] font-serif text-2xl italic">
                     {p.title.charAt(0)}
                   </div>
                 )}
@@ -74,7 +74,7 @@ export default function ProjectFilter({ projects }: Props) {
                   {p.category.map(cat => (
                     <span
                       key={cat}
-                      className="text-xs px-2.5 py-1 border border-[#e0ddd8] text-[#2C363F] cursor-default transition-all duration-200 hover:border-[#E16F7C] hover:italic"
+                      className="text-xs px-2.5 py-1 border border-[var(--color-border)] text-[var(--color-muted)] cursor-default transition-all duration-200 hover:border-[var(--color-accent)] hover:italic"
                     >
                       {cat}
                     </span>
@@ -83,7 +83,7 @@ export default function ProjectFilter({ projects }: Props) {
                 <h3 className="card-title font-serif text-lg font-semibold leading-snug">
                   {p.title}
                 </h3>
-                <p className="card-desc text-sm text-[#2C363F] leading-relaxed line-clamp-2">{p.shortDescription}</p>
+                <p className="card-desc text-sm text-[var(--color-muted)] leading-relaxed line-clamp-2">{p.shortDescription}</p>
               </div>
             </a>
           </div>

@@ -18,7 +18,7 @@ export default function ProjectCard({ slug, title, category, shortDescription, c
             className="card-img w-full h-full object-cover"
           /></div>
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-[#E16F7C] font-serif text-2xl italic">
+          <div className="w-full h-full flex items-center justify-center text-[var(--color-accent)] font-serif text-2xl italic">
             {title.charAt(0)}
           </div>
         )}
@@ -26,7 +26,7 @@ export default function ProjectCard({ slug, title, category, shortDescription, c
       <div className="space-y-1">
         <div className="card-tags flex gap-2 flex-wrap">
           {category.map(cat => (
-            <span key={cat} className="text-xs px-2.5 py-1 border border-[#e0ddd8] text-[#2C363F] cursor-default transition-all duration-200 hover:border-[#E16F7C] hover:italic">
+            <span key={cat} className="text-xs px-2.5 py-1 border border-[var(--color-border)] text-[var(--color-muted)] cursor-default transition-all duration-200 hover:border-[var(--color-accent)] hover:italic">
               {cat}
             </span>
           ))}
@@ -34,7 +34,7 @@ export default function ProjectCard({ slug, title, category, shortDescription, c
         <h3 className="card-title font-serif text-lg font-semibold leading-snug">
           {title}
         </h3>
-        <p className="card-desc text-sm text-[#2C363F] leading-relaxed line-clamp-2">
+        <p className="card-desc text-sm text-[var(--color-muted)] leading-relaxed line-clamp-2">
           {shortDescription}
         </p>
       </div>

@@ -25,16 +25,16 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
 <header id="project-hero" class="max-w-5xl mx-auto px-6 mb-16 pt-6">
   <div class="flex gap-2 flex-wrap mb-4">
     {p.category.map(cat => (
-      <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+      <span class="text-xs text-[var(--color-muted)] uppercase tracking-widest border border-[var(--color-border)] px-2 py-1">{cat}</span>
     ))}
   </div>
   <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-6">{p.title}</h1>
   <dl class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
-    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Role</dt><dd>{p.role}</dd></div>
-    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Product</dt><dd>{p.product}</dd></div>
-    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Platform</dt><dd>{p.platform}</dd></div>
-    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Duration</dt><dd>{p.duration}</dd></div>
-    <div><dt class="text-[#2C363F] uppercase tracking-widest text-xs mb-1">Focus</dt><dd>{p.focus}</dd></div>
+    <div><dt class="text-[var(--color-muted)] uppercase tracking-widest text-xs mb-1">Role</dt><dd>{p.role}</dd></div>
+    <div><dt class="text-[var(--color-muted)] uppercase tracking-widest text-xs mb-1">Product</dt><dd>{p.product}</dd></div>
+    <div><dt class="text-[var(--color-muted)] uppercase tracking-widest text-xs mb-1">Platform</dt><dd>{p.platform}</dd></div>
+    <div><dt class="text-[var(--color-muted)] uppercase tracking-widest text-xs mb-1">Duration</dt><dd>{p.duration}</dd></div>
+    <div><dt class="text-[var(--color-muted)] uppercase tracking-widest text-xs mb-1">Focus</dt><dd>{p.focus}</dd></div>
   </dl>
 </header>
 
@@ -43,31 +43,31 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
 
     <!-- Top: title → tags → meta -->
     <div>
-      <h2 class="font-serif text-base font-semibold leading-snug mb-3 text-[#1a1a1a]">{p.title}</h2>
+      <h2 class="font-serif text-base font-semibold leading-snug mb-3 text-[var(--color-text)]">{p.title}</h2>
       <div class="flex gap-1 flex-wrap mb-5">
         {p.category.map(cat => (
-          <span class="text-[8px] text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-1.5 py-0.5">{cat}</span>
+          <span class="text-[8px] text-[var(--color-muted)] uppercase tracking-widest border border-[var(--color-border)] px-1.5 py-0.5">{cat}</span>
         ))}
       </div>
       <dl>
-        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
-          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Role</dt>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[var(--color-border)]">
+          <dt class="text-[var(--color-muted)] uppercase tracking-widest text-[8px]">Role</dt>
           <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.role}</dd>
         </div>
-        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
-          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Product</dt>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[var(--color-border)]">
+          <dt class="text-[var(--color-muted)] uppercase tracking-widest text-[8px]">Product</dt>
           <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.product}</dd>
         </div>
-        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
-          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Platform</dt>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[var(--color-border)]">
+          <dt class="text-[var(--color-muted)] uppercase tracking-widest text-[8px]">Platform</dt>
           <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.platform}</dd>
         </div>
-        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
-          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Duration</dt>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[var(--color-border)]">
+          <dt class="text-[var(--color-muted)] uppercase tracking-widest text-[8px]">Duration</dt>
           <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.duration}</dd>
         </div>
-        <div class="flex justify-between items-baseline py-1.5 border-b border-[#e0ddd8]">
-          <dt class="text-[#2C363F] uppercase tracking-widest text-[8px]">Focus</dt>
+        <div class="flex justify-between items-baseline py-1.5 border-b border-[var(--color-border)]">
+          <dt class="text-[var(--color-muted)] uppercase tracking-widest text-[8px]">Focus</dt>
           <dd class="text-[#3a3a3a] text-[11px] text-right ml-2">{p.focus}</dd>
         </div>
       </dl>
@@ -80,7 +80,7 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
           <li class="text-right">
             <a
               href={`#${item.id}`}
-              class="toc-link text-[11px] text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors leading-snug"
+              class="toc-link text-[11px] text-[#6b6b6b] hover:text-[var(--color-text)] transition-colors leading-snug"
               data-section={item.id}
             >
               {item.label}
@@ -124,7 +124,7 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
         <div class="w-4/5 mx-auto">
           <h2 class="font-serif text-2xl font-semibold mb-4">Goals</h2>
           <ul class="space-y-2">
-            {p.goals.map(g => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{g}</li>)}
+            {p.goals.map(g => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[var(--color-accent)] mt-1">→</span>{g}</li>)}
           </ul>
         </div>
       </section>
@@ -136,7 +136,7 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
         <div class="w-4/5 mx-auto">
           <h2 class="font-serif text-2xl font-semibold mb-4">My Role</h2>
           <ul class="space-y-2">
-            {p.myRole.map(r => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{r}</li>)}
+            {p.myRole.map(r => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[var(--color-accent)] mt-1">→</span>{r}</li>)}
           </ul>
         </div>
       </section>
@@ -150,7 +150,7 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
           <ol class="space-y-2">
             {p.process.map((step, i) => (
               <li class="flex gap-3 text-[#3a3a3a]">
-                <span class="text-[#E16F7C] font-medium min-w-[1.5rem]">{i + 1}.</span>
+                <span class="text-[var(--color-accent)] font-medium min-w-[1.5rem]">{i + 1}.</span>
                 {step}
               </li>
             ))}
@@ -199,7 +199,7 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
         <div class="w-4/5 mx-auto">
           <h2 class="font-serif text-2xl font-semibold mb-4">Impact & Outcome</h2>
           <ul class="space-y-2">
-            {p.impact.map(item => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">✦</span>{item}</li>)}
+            {p.impact.map(item => <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[var(--color-accent)] mt-1">✦</span>{item}</li>)}
           </ul>
         </div>
       </section>
@@ -246,12 +246,12 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
   }
 
   .toc-link.is-active {
-    color: #1a1a1a;
+    color: var(--color-text);
     font-weight: 500;
   }
   .toc-link.is-active::before {
     content: '— ';
-    color: #E16F7C;
+    color: var(--color-accent);
   }
 </style>
 

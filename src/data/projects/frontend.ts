@@ -43,9 +43,9 @@ export const frontendProjects: ProjectFrontend[] = [
     type: 'frontend',
     featured: false,
     coverImage: '/assets/cover_images/friminho-iogurte.png',
+    hideCoverInDetail: true,
     shortDescription: 'An animated web infographic for Friminho\'s yogurt line, communicating nutritional benefits in an engaging, child-friendly format.',
-    overview: 'An animated HTML/CSS/JS infographic for Frimesa\'s Friminho yogurt product line, targeted at parents and kids. The piece communicates nutritional highlights, ingredients, and product variants through playful motion and interactive elements.',
-    insight: 'Nutritional content doesn\'t have to be clinical. By treating each data point as a character moment, we made healthy information genuinely fun to explore.',
+    link: 'https://friminho.com.br/assimquesefaz/iogurte',
     stack: ['Animation CSS', 'HTML', 'JavaScript'],
     images: [
       '/assets/projects/friminho-iogurte/friminho-iogurte_1.webp',
@@ -58,8 +58,9 @@ export const frontendProjects: ProjectFrontend[] = [
     type: 'frontend',
     featured: false,
     coverImage: '/assets/cover_images/friminho-achocolatado.png',
+    hideCoverInDetail: true,
     shortDescription: 'Animated web infographic for Friminho\'s chocolate milk line, showcasing ingredients and nutritional value with playful animations.',
-    overview: 'A companion infographic to the Friminho Iogurte piece, this time for the Friminho Achocolatado (chocolate milk) product. Same playful animation approach, adapted for the chocolate milk brand character and color palette.',
+    link: 'https://friminho.com.br/assimquesefaz/achocolatado',
     stack: ['Animation CSS', 'HTML', 'JavaScript'],
     images: [
       '/assets/projects/friminho-achocolatado/friminho-iogurte_2.webp',

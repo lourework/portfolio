@@ -27,7 +27,7 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
 <header id="project-hero" class="max-w-5xl mx-auto px-6 mb-16 pt-6">
   <div class="flex gap-2 flex-wrap mb-4">
     {p.category.map(cat => (
-      <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+      <span class="text-xs text-[var(--color-muted)] uppercase tracking-widest border border-[var(--color-border)] px-2 py-1">{cat}</span>
     ))}
   </div>
   <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight">{p.title}</h1>
@@ -38,10 +38,10 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
 
   <!-- Top: title → tags -->
   <div>
-    <h2 class="font-serif text-base font-semibold leading-snug mb-3 text-[#1a1a1a]">{p.title}</h2>
+    <h2 class="font-serif text-base font-semibold leading-snug mb-3 text-[var(--color-text)]">{p.title}</h2>
     <div class="flex gap-1 flex-wrap mb-5">
       {p.category.map(cat => (
-        <span class="text-[8px] text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-1.5 py-0.5">{cat}</span>
+        <span class="text-[8px] text-[var(--color-muted)] uppercase tracking-widest border border-[var(--color-border)] px-1.5 py-0.5">{cat}</span>
       ))}
     </div>
   </div>
@@ -53,7 +53,7 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
         <li class="text-right">
           <a
             href={`#${item.id}`}
-            class="toc-link text-[11px] text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors leading-snug"
+            class="toc-link text-[11px] text-[#6b6b6b] hover:text-[var(--color-text)] transition-colors leading-snug"
             data-section={item.id}
           >
             {item.label}
@@ -234,7 +234,7 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
         <h2 class="font-serif text-2xl font-semibold mb-4">Usability Tests</h2>
         <ul class="space-y-2">
           {p.usabilityTests.map(item => (
-            <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[#E16F7C] mt-1">→</span>{item}</li>
+            <li class="flex gap-3 text-[#3a3a3a]"><span class="text-[var(--color-accent)] mt-1">→</span>{item}</li>
           ))}
         </ul>
       </div>
@@ -259,8 +259,8 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
       )}
       {p.prototype.videoUrl && (
         p.prototype.videoUrl.includes('youtube') || p.prototype.videoUrl.includes('youtu.be')
-          ? <div class="w-full aspect-video border border-[#e0ddd8] overflow-hidden mb-6"><iframe src={p.prototype.videoUrl} title="Video" allowfullscreen class="w-full h-full" loading="lazy" /></div>
-          : <video src={p.prototype.videoUrl} controls class="w-full mb-6 border border-[#e0ddd8]" />
+          ? <div class="w-full aspect-video border border-[var(--color-border)] overflow-hidden mb-6"><iframe src={p.prototype.videoUrl} title="Video" allowfullscreen class="w-full h-full" loading="lazy" /></div>
+          : <video src={p.prototype.videoUrl} controls class="w-full mb-6 border border-[var(--color-border)]" />
       )}
       {p.prototype.figmaUrl && <FigmaEmbed url={p.prototype.figmaUrl} title="Prototype" />}
     </section>
@@ -305,12 +305,12 @@ if (p.nextSteps) tocItems.push({ id: 'next-steps', label: 'Next Steps' })
   }
 
   .toc-link.is-active {
-    color: #1a1a1a;
+    color: var(--color-text);
     font-weight: 500;
   }
   .toc-link.is-active::before {
     content: '— ';
-    color: #E16F7C;
+    color: var(--color-accent);
   }
 </style>
 

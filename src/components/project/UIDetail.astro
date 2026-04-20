@@ -11,15 +11,15 @@ const { project: p } = Astro.props
 import { url } from '../../utils/url'
 ---
 <article class="max-w-5xl mx-auto px-6 pb-20">
-  <header class="mb-16">
+  <header class="mb-16 pt-6">
     <div class="flex gap-2 flex-wrap mb-4">
       {p.category.map(cat => (
-        <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+        <span class="text-xs text-[var(--color-muted)] uppercase tracking-widest border border-[var(--color-border)] px-2 py-1">{cat}</span>
       ))}
     </div>
     <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-4">{p.title}</h1>
     {p.contextNote && (
-      <p class="text-sm text-[#2C363F] italic">{p.contextNote}</p>
+      <p class="text-sm text-[var(--color-muted)] italic">{p.contextNote}</p>
     )}
   </header>
 

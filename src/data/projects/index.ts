@@ -32,6 +32,7 @@ export interface ProjectCase extends Project {
 
 export interface ProjectFrontend extends Project {
   type: 'frontend'
+  hideCoverInDetail?: boolean
   overview?: string
   insight?: string
   link?: string

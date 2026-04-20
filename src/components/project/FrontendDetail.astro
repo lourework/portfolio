@@ -10,10 +10,10 @@ const { project: p } = Astro.props
 import { url } from '../../utils/url'
 ---
 <article class="max-w-5xl mx-auto px-6 pb-20">
-  <header class="mb-16">
+  <header class="mb-16 pt-6">
     <div class="flex gap-2 flex-wrap mb-4">
       {p.category.map(cat => (
-        <span class="text-xs text-[#2C363F] uppercase tracking-widest border border-[#e0ddd8] px-2 py-1">{cat}</span>
+        <span class="text-xs text-[var(--color-muted)] uppercase tracking-widest border border-[var(--color-border)] px-2 py-1">{cat}</span>
       ))}
     </div>
     <h1 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight mb-6">{p.title}</h1>
@@ -24,7 +24,7 @@ import { url } from '../../utils/url'
     </div>
   </header>
 
-  {p.coverImage && (
+  {p.coverImage && !p.hideCoverInDetail && (
     <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
       <img src={url(p.coverImage.replace(/^\//, ''))} alt={p.title} class="w-full h-full object-cover" />
     </div>
@@ -33,10 +33,10 @@ import { url } from '../../utils/url'
   <section class="mb-14 w-4/5 mx-auto text-left">
     {p.overview && <p class="text-base leading-relaxed text-[#3a3a3a] mb-6">{p.overview}</p>}
     {p.insight && (
-      <blockquote class="border-l-2 border-[#E16F7C] pl-5 italic text-[#2C363F]">{p.insight}</blockquote>
+      <blockquote class="border-l-2 border-[var(--color-accent)] pl-5 italic text-[var(--color-muted)]">{p.insight}</blockquote>
     )}
     {p.link && (
-      <a href={p.link} target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-sm text-[#E16F7C] underline underline-offset-4 hover:opacity-70 transition-opacity">{p.link}</a>
+      <a href={p.link} target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-sm text-[var(--color-accent)] underline underline-offset-4 hover:opacity-70 transition-opacity">{p.link}</a>
     )}
   </section>
 

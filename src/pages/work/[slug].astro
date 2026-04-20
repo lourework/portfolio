@@ -21,7 +21,7 @@ const { project } = Astro.props
 <ProjectLayout title={project.title} description={project.shortDescription}>
 
   <div class="max-w-5xl mx-auto px-6 pt-6">
-    <a href={url('work')} class="inline-flex items-center gap-1.5 text-xs text-[#2C363F] hover:text-[#E16F7C] transition-colors tracking-wide">
+    <a href={url('work')} class="inline-flex items-center gap-1.5 text-xs text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors tracking-wide">
       <span>←</span> work
     </a>
   </div>

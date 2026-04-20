@@ -35,7 +35,7 @@ const tools = [
       <p class="font-serif text-2xl sm:text-3xl font-semibold leading-snug mb-4">
         I've always lived between design and code.
       </p>
-      <p class="text-lg text-[#2C363F] italic leading-relaxed">
+      <p class="text-lg text-[var(--color-muted)] italic leading-relaxed">
         Ten years in, I've stopped treating that as a split — and started treating it as my superpower.
       </p>
     </div>
@@ -63,17 +63,17 @@ const tools = [
         <section>
           <h2 class="font-serif text-2xl font-semibold mb-5">How I work</h2>
           <div class="space-y-5 max-w-2xl">
-            <div class="border-l-2 border-[#E16F7C] pl-5">
-              <h3 class="text-sm font-semibold uppercase tracking-widest text-[#E16F7C] mb-1">Design with empathy, ship with precision</h3>
-              <p class="text-sm text-[#2C363F] leading-relaxed">Code should respect the user experience in every state, every breakpoint, every detail — and good design systems are how teams scale without losing their soul.</p>
+            <div class="border-l-2 border-[var(--color-accent)] pl-5">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-1">Design with empathy, ship with precision</h3>
+              <p class="text-sm text-[var(--color-muted)] leading-relaxed">Code should respect the user experience in every state, every breakpoint, every detail — and good design systems are how teams scale without losing their soul.</p>
             </div>
-            <div class="border-l-2 border-[#E16F7C] pl-5">
-              <h3 class="text-sm font-semibold uppercase tracking-widest text-[#E16F7C] mb-1">Accessibility is not optional</h3>
-              <p class="text-sm text-[#2C363F] leading-relaxed">WCAG-certified and genuinely convinced that accessible products are simply better products.</p>
+            <div class="border-l-2 border-[var(--color-accent)] pl-5">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-1">Accessibility is not optional</h3>
+              <p class="text-sm text-[var(--color-muted)] leading-relaxed">WCAG-certified and genuinely convinced that accessible products are simply better products.</p>
             </div>
-            <div class="border-l-2 border-[#E16F7C] pl-5">
-              <h3 class="text-sm font-semibold uppercase tracking-widest text-[#E16F7C] mb-1">AI as collaborator, not shortcut</h3>
-              <p class="text-sm text-[#2C363F] leading-relaxed">Tools like Claude Code let me move from wireframes to working code without losing the craft. AI doesn't replace the thinking — it gives me more room to do it well.</p>
+            <div class="border-l-2 border-[var(--color-accent)] pl-5">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-1">AI as collaborator, not shortcut</h3>
+              <p class="text-sm text-[var(--color-muted)] leading-relaxed">Tools like Claude Code let me move from wireframes to working code without losing the craft. AI doesn't replace the thinking — it gives me more room to do it well.</p>
             </div>
           </div>
         </section>
@@ -85,8 +85,8 @@ const tools = [
           <dl class="grid grid-cols-[max-content_1fr] gap-x-8 gap-y-3 max-w-2xl">
             {tools.map(({ cat, list }) => (
               <>
-                <dt class="text-xs font-semibold uppercase tracking-widest text-[#E16F7C] self-start pt-0.5">{cat}</dt>
-                <dd class="text-sm text-[#2C363F]">{list}</dd>
+                <dt class="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] self-start pt-0.5">{cat}</dt>
+                <dd class="text-sm text-[var(--color-muted)]">{list}</dd>
               </>
             ))}
           </dl>
@@ -97,7 +97,7 @@ const tools = [
           <h2 class="font-serif text-2xl font-semibold mb-5">Core UX Skills</h2>
           <ul class="grid grid-cols-2 gap-2">
             {skills.map(s => (
-              <li class="text-sm text-[#2C363F]">— {s}</li>
+              <li class="text-sm text-[var(--color-muted)]">— {s}</li>
             ))}
           </ul>
         </section>
@@ -105,14 +105,14 @@ const tools = [
         <!-- Outside the screen -->
         <section>
           <h2 class="font-serif text-2xl font-semibold mb-3">Outside the screen</h2>
-          <p class="text-sm text-[#2C363F] leading-relaxed max-w-xl">
-            I also run <a href="https://www.babiloure.com/" target="_blank" rel="noopener" class="font-semibold underline underline-offset-2 hover:text-[#E16F7C] transition-colors">Babi Loure Photography</a>, a practice focused on families, newborns, and motherhood storytelling. It started during my postpartum, when I began photographing with my son in my arms — an experience that reshaped how I see creative work. It keeps me grounded in what I care about most in any project: people first.
+          <p class="text-sm text-[var(--color-muted)] leading-relaxed max-w-xl">
+            I also run <a href="https://www.babiloure.com/" target="_blank" rel="noopener" class="font-semibold underline underline-offset-2 hover:text-[var(--color-accent)] transition-colors">Babi Loure Photography</a>, a practice focused on families, newborns, and motherhood storytelling. It started during my postpartum, when I began photographing with my son in my arms — an experience that reshaped how I see creative work. It keeps me grounded in what I care about most in any project: people first.
           </p>
 
-          <h3 class="text-xs font-semibold uppercase tracking-widest text-[#E16F7C] mt-10 mb-3">who I am, beyond work</h3>
+          <h3 class="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] mt-10 mb-3">who I am, beyond work</h3>
           <div class="flex flex-wrap gap-2 mb-12">
             {beyondWork.map(tag => (
-              <span class="text-sm px-3 py-1.5 border border-[#e0ddd8] text-[#2C363F] cursor-default transition-all duration-200 hover:border-[#E16F7C] hover:italic">
+              <span class="text-sm px-3 py-1.5 border border-[var(--color-border)] text-[var(--color-muted)] cursor-default transition-all duration-200 hover:border-[var(--color-accent)] hover:italic">
                 {tag}
               </span>
             ))}
@@ -133,19 +133,19 @@ const tools = [
       <!-- Side panel -->
       <div>
         <div class="sticky top-24 space-y-6">
-          <div class="border border-[#e0ddd8] p-6 space-y-5">
-            <div class="space-y-1 text-sm text-[#2C363F]">
-              <p class="font-medium text-[#1a1a1a]">Based in Montreal</p>
+          <div class="border border-[var(--color-border)] p-6 space-y-5">
+            <div class="space-y-1 text-sm text-[var(--color-muted)]">
+              <p class="font-medium text-[var(--color-text)]">Based in Montreal</p>
               <p>English · Français · Português</p>
             </div>
-            <p class="text-sm text-[#2C363F] leading-relaxed">
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">
               <span class="font-serif font-light italic">Designing + building digital experiences.</span><br />
               Open to roles in Product, UX/UI & Front-End.
             </p>
             <div class="space-y-2">
               <a
                 href="mailto:bacarolina.g@gmail.com"
-                class="block w-full text-center px-4 py-2.5 bg-[#1a1a1a] text-white text-sm font-medium hover:bg-[#333] transition-colors"
+                class="block w-full text-center px-4 py-2.5 bg-[var(--color-text)] text-white text-sm font-medium hover:bg-[#333] transition-colors"
               >
                 Get in touch
               </a>
@@ -153,7 +153,7 @@ const tools = [
                 href="https://linkedin.com/in/babilourenco"
                 target="_blank"
                 rel="noopener"
-                class="block w-full text-center px-4 py-2.5 border border-[#1a1a1a] text-sm font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors"
+                class="block w-full text-center px-4 py-2.5 border border-[var(--color-text)] text-sm font-medium hover:bg-[var(--color-text)] hover:text-white transition-colors"
               >
                 LinkedIn ↗
               </a>
@@ -161,7 +161,7 @@ const tools = [
                 href="https://drive.google.com/file/d/1ulmNJgsgWb_F0uNBbFBwGC8nOPQ_4ghf/view?usp=sharing"
                 target="_blank"
                 rel="noopener"
-                class="block w-full text-center px-4 py-2.5 border border-[#1a1a1a] text-sm font-medium hover:bg-[#1a1a1a] hover:text-white transition-colors"
+                class="block w-full text-center px-4 py-2.5 border border-[var(--color-text)] text-sm font-medium hover:bg-[var(--color-text)] hover:text-white transition-colors"
               >
                 Resume ↗
               </a>
