@@ -41,7 +41,6 @@ export const cases: ProjectCase[] = [
         description: 'I redesigned the Employee Portal interface, focusing on clarity and ease of use. The new layout improved navigation, visual hierarchy, and readability, helping employees quickly access schedules, availability, and actions without friction.',
         images: [
           '/assets/cover_images/merinio-employee-experience.png',
-          '/assets/projects/merinio-employee-experience/Merinio.webp',
           '/assets/projects/merinio-employee-experience/Merinio2.webp',
         ],
       },
@@ -230,7 +229,6 @@ export const cases: ProjectCase[] = [
         title: 'Integrated Map & List View',
         description: 'The redesigned experience connected list and map views in a single interface, allowing users to quickly locate offices, understand their availability, and access relevant information without leaving the page. The solution reduced friction in the search process and delivered a clearer, more intuitive location experience.',
         images: [
-          '/assets/cover_images/motto-office-locator.png',
           '/assets/projects/motto-office-locator/image.webp',
         ],
       },
@@ -280,14 +278,14 @@ export const cases: ProjectCase[] = [
       {
         title: 'Club Mondelez Admin Panel',
         description: 'The Club Mondelez program required an internal system to manage points of sale and monitor campaign performance across different regions. The challenge was to organize large volumes of operational data in a clear and actionable way for internal teams.',
-        images: [
-          '/assets/cover_images/mondelez-club-platform.png',
-        ],
+        images: [],
+        figmaUrl: 'https://www.figma.com/proto/jt3zy1VcGvW9zDwusPKO9o/Mondelez?page-id=0%3A1&node-id=9-7825&starting-point-node-id=9%3A7825&t=6fDBepMigl46KPOS-1',
       },
       {
         title: 'Club Mondelez Website Form',
         description: 'The website needed a more efficient way to route incoming requests to the correct internal teams. The existing flow lacked clarity and created unnecessary manual handling. A structured contact form with subject-based routing was designed to automatically direct messages to the responsible stakeholders, improving communication efficiency and reducing response time.',
         images: [],
+        figmaUrl: 'https://www.figma.com/proto/jt3zy1VcGvW9zDwusPKO9o/Mondelez?page-id=9%3A21517&node-id=9-22122&starting-point-node-id=9%3A22122&t=ndnoE8V2NKe6Jwv2-1',
       },
     ],
     impact: [

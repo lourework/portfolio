@@ -14,9 +14,7 @@ export const uiProjects: ProjectUI[] = [
       {
         title: 'Network Connection',
         description: 'UI design for network connection feature.',
-        images: [
-          '/assets/cover_images/motto-center.png',
-        ],
+        images: [],
         figmaUrl: 'https://www.figma.com/proto/sUq6sT7SLpk4Ohji0pxjVn/Motto?embed_host=notion&kind=proto&node-id=11-9268&page-id=11%3A9267&scaling=scale-down-width&starting-point-node-id=11%3A9268&viewport=43264%2C60190%2C0.56&t=6tLbJ4r9rmolsoMd-1',
       },
       {
@@ -40,6 +38,7 @@ export const uiProjects: ProjectUI[] = [
     type: 'ui',
     featured: false,
     coverImage: '/assets/cover_images/cormora.png',
+    hideCoverInDetail: true,
     shortDescription: 'UI design for Cormora — a travel agency system with pop-up flows and redesigned header components.',
     contextNote: 'Projects made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [
@@ -68,6 +67,7 @@ export const uiProjects: ProjectUI[] = [
     type: 'ui',
     featured: false,
     coverImage: '/assets/cover_images/meuPS.png',
+    hideCoverInDetail: true,
     shortDescription: 'UI design for MeuPS — including a custom illustrated 404 page designed from scratch.',
     contextNote: 'Project made at Matilha Estúdio where I worked as a UI Designer.',
     groups: [

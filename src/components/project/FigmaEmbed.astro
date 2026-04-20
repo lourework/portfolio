@@ -4,11 +4,15 @@ interface Props {
   title?: string
 }
 
-const { url, title = 'Figma prototype' } = Astro.props
+const { url: rawUrl, title = 'Figma prototype' } = Astro.props
+
+const embedUrl = rawUrl.includes('embed_host')
+  ? rawUrl
+  : `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(rawUrl)}`
 ---
 <div class="w-full aspect-video border border-[#e0ddd8] overflow-hidden my-8">
   <iframe
-    src={url}
+    src={embedUrl}
     title={title}
     allowfullscreen
     class="w-full h-full"

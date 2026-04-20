@@ -1,5 +1,6 @@
 ---
 import FigmaEmbed from './FigmaEmbed.astro'
+import ImageGallery from '../ImageGallery'
 import type { ProjectCase } from '../../data/projects/index'
 
 interface Props {
@@ -171,13 +172,18 @@ if (p.learnings) tocItems.push({ id: 'learnings', label: 'Learnings' })
                 <h3 class="font-serif text-xl font-semibold mb-3">{sol.title}</h3>
                 <p class="text-base leading-relaxed text-[#3a3a3a]">{sol.description}</p>
               </div>
-              {sol.images?.length > 0 && (
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                  {sol.images.map(img => (
-                    <div class="bg-[#eeecea] overflow-hidden">
-                      <img src={url(img.replace(/^\//, ''))} alt={sol.title} class="w-full h-full object-cover" />
-                    </div>
-                  ))}
+              {sol.images?.length === 1 && (
+                <div class="mb-6" style="width:90%;margin:40px auto 32px;">
+                  <img src={url(sol.images[0].replace(/^\//, ''))} alt={sol.title} style="width:100%;height:auto;display:block;" />
+                </div>
+              )}
+              {sol.images?.length > 1 && (
+                <div class="mb-6">
+                  <ImageGallery
+                    client:load
+                    images={sol.images.map(img => url(img.replace(/^\//, '')))}
+                    alt={sol.title}
+                  />
                 </div>
               )}
               {sol.figmaUrl && <FigmaEmbed url={sol.figmaUrl} title={sol.title} />}

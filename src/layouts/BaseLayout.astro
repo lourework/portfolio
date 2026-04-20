@@ -20,12 +20,14 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   </head>
   <body class="min-h-screen flex flex-col">
     <div id="cursor" aria-hidden="true"></div>
+    <div id="gallery-cursor" aria-hidden="true">← swipe →</div>
     <Nav />
     <main class="flex-1">
       <slot />
@@ -34,24 +36,37 @@ const {
 
     <script>
       const cursor = document.getElementById('cursor')!
+      const galleryCursor = document.getElementById('gallery-cursor')!
       let mouseX = -100, mouseY = -100
       let curX = -100, curY = -100
+      let inGallery = false
 
       document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX
         mouseY = e.clientY
       })
 
-      const interactiveSelector = 'a, button, [role="button"], label, input, select, textarea, [tabindex]'
+      // .image-gallery has tabIndex so we exclude it from the interactive hover expansion
+      const interactiveSelector = 'a, button, [role="button"], label, input, select, textarea'
 
       document.addEventListener('mouseover', (e) => {
-        if ((e.target as Element).closest(interactiveSelector)) {
+        const target = e.target as Element
+        const nowInGallery = !!target.closest('.image-gallery')
+
+        if (nowInGallery !== inGallery) {
+          inGallery = nowInGallery
+          cursor.style.opacity = inGallery ? '0' : '1'
+          galleryCursor.style.display = inGallery ? 'block' : 'none'
+          if (!inGallery) cursor.classList.remove('cursor--hover')
+        }
+
+        if (!inGallery && target.closest(interactiveSelector)) {
           cursor.classList.add('cursor--hover')
         }
       })
 
       document.addEventListener('mouseout', (e) => {
-        if ((e.target as Element).closest(interactiveSelector)) {
+        if (!inGallery && (e.target as Element).closest(interactiveSelector)) {
           cursor.classList.remove('cursor--hover')
         }
       })
@@ -60,6 +75,9 @@ const {
         curX += (mouseX - curX) * 0.12
         curY += (mouseY - curY) * 0.12
         cursor.style.transform = `translate(${curX}px, ${curY}px)`
+        if (inGallery) {
+          galleryCursor.style.transform = `translate(calc(${curX}px - 50%), calc(${curY}px - 50%))`
+        }
         requestAnimationFrame(tick)
       }
       tick()

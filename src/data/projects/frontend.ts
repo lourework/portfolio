@@ -14,7 +14,6 @@ export const frontendProjects: ProjectFrontend[] = [
     stack: ['HTML', 'CSS', 'PUG', 'JavaScript'],
     images: [
       '/assets/cover_images/marista-interactive-totem.png',
-      '/assets/projects/marista-interactive-totem/Group_30.webp',
       '/assets/projects/marista-interactive-totem/Mask_Group.webp',
       '/assets/projects/marista-interactive-totem/Mask_Group2.webp',
       '/assets/projects/marista-interactive-totem/Mask_Group3.webp',
@@ -32,11 +31,10 @@ export const frontendProjects: ProjectFrontend[] = [
     featured: false,
     coverImage: '/assets/cover_images/frimesa-website.png',
     shortDescription: 'Corporate website for Frimesa, a leading Brazilian food cooperative.',
-    overview: 'Corporate website for Frimesa, one of the largest food cooperatives in southern Brazil, focusing on clear communication of their product portfolio, cooperative values, and institutional information.',
+    overview: 'In this project for Frimesa (2019), I implemented a new store locator experience that allowed users to search by address while simultaneously filtering results based on the products they were looking for. This improvement made the search process more intuitive and efficient, helping users quickly find exactly what they needed.',
+    link: 'https://www.frimesa.com.br/pt/localizar',
     stack: ['HTML', 'CSS', 'PUG', 'JavaScript'],
-    images: [
-      '/assets/projects/frimesa-website/friminho-iogurte_3.webp',
-    ],
+    images: [],
   },
   {
     slug: 'friminho-iogurte',

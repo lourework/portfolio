@@ -18,6 +18,7 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   h1, h2, h3 {
@@ -59,6 +60,29 @@
     margin-left: -18px;
     margin-top: -18px;
     opacity: 0.55;
+  }
+}
+
+/* ── Gallery cursor ── */
+@media (pointer: fine) {
+  #gallery-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    display: none;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    color: #FBFBF2;
+    white-space: nowrap;
+    z-index: 9999;
+    letter-spacing: 0.04em;
+    will-change: transform;
+    background-color: rgba(26, 26, 26, 0.85);
+    padding: 7px 18px;
+    border-radius: 100px;
+    backdrop-filter: blur(4px);
   }
 }
 

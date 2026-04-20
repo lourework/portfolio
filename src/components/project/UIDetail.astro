@@ -1,5 +1,6 @@
 ---
 import FigmaEmbed from './FigmaEmbed.astro'
+import ImageGallery from '../ImageGallery'
 import type { ProjectUI } from '../../data/projects/index'
 
 interface Props {
@@ -22,7 +23,7 @@ import { url } from '../../utils/url'
     )}
   </header>
 
-  {p.coverImage && (
+  {p.coverImage && !p.hideCoverInDetail && (
     <div class="aspect-video overflow-hidden bg-[#eeecea] mb-16">
       <img src={url(p.coverImage.replace(/^\//, ''))} alt={p.title} class="w-full h-full object-cover" />
     </div>
@@ -35,14 +36,17 @@ import { url } from '../../utils/url'
         {group.description && (
           <p class="text-base leading-relaxed text-[#3a3a3a] mb-6">{group.description}</p>
         )}
-        {group.images.length > 0 && (
-          <div class={`grid gap-4 mb-6 ${group.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
-            {group.images.map(img => (
-              <div class="bg-[#eeecea] overflow-hidden">
-                <img src={url(img.replace(/^\//, ''))} alt={group.title} class="w-full h-full object-cover" />
-              </div>
-            ))}
+        {group.images.length === 1 && (
+          <div style="width:90%;margin:40px auto 32px;">
+            <img src={url(group.images[0].replace(/^\//, ''))} alt={group.title} style="width:100%;height:auto;display:block;" />
           </div>
+        )}
+        {group.images.length > 1 && (
+          <ImageGallery
+            client:load
+            images={group.images.map(img => url(img.replace(/^\//, '')))}
+            alt={group.title}
+          />
         )}
         {group.figmaUrl && <FigmaEmbed url={group.figmaUrl} title={group.title} />}
       </section>

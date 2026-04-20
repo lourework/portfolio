@@ -4,7 +4,7 @@ export interface Project {
   category: string[]
   type: 'case' | 'frontend' | 'ui' | 'study'
   featured: boolean
-  coverImage: string
+  coverImage?: string
   shortDescription: string
 }
 
@@ -32,14 +32,16 @@ export interface ProjectCase extends Project {
 
 export interface ProjectFrontend extends Project {
   type: 'frontend'
-  overview: string
+  overview?: string
   insight?: string
+  link?: string
   stack: string[]
   images: string[]
 }
 
 export interface ProjectUI extends Project {
   type: 'ui'
+  hideCoverInDetail?: boolean
   contextNote: string
   groups: {
     title: string

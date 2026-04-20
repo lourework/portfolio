@@ -41,7 +41,14 @@
       "Bash(pkill -f \"npm run dev\")",
       "Bash(awk -F\"'\" '{print $2}')",
       "Bash(pkill -f \"astro\")",
-      "Bash(pkill -f \"node.*dev\")"
+      "Bash(pkill -f \"node.*dev\")",
+      "WebFetch(domain:pin.it)",
+      "WebFetch(domain:api.pinterest.com)",
+      "WebFetch(domain:www.pinterest.ca)",
+      "WebFetch(domain:ca.pinterest.com)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/portfolio/work/merinio-employee-experience)",
+      "Bash(curl -s http://localhost:4322/portfolio/work/merinio-employee-experience)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4322/portfolio/work/merinio-employee-experience)"
     ]
   }
 }

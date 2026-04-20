@@ -7,10 +7,22 @@ const navLinks = [
   { href: url('about'), label: 'about' },
 ]
 ---
+<style>
+  @keyframes blink {
+    0%, 88%, 100% { transform: scaleY(1); }
+    92%           { transform: scaleY(0.12); }
+    96%           { transform: scaleY(1); }
+  }
+  .blink-face {
+    display: inline-block;
+    animation: blink 3.5s infinite;
+    transform-origin: center 60%;
+  }
+</style>
 <nav class="fixed top-0 left-0 right-0 z-50 bg-[#FBFBF2]/90 backdrop-blur-sm border-b border-[#e0ddd8]">
   <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href={url('')} class="font-serif text-lg font-semibold tracking-tight hover:text-[#E16F7C] transition-colors">
-      babi
+    <a href={url('')} class="font-serif text-lg font-semibold tracking-tight">
+      <span class="text-[#E16F7C]">Babi</span>.
     </a>
     <ul class="flex gap-8 items-center">
       {navLinks.map(({ href, label }) => (
