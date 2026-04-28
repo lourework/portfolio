@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #FBFBF2;
-  --color-text: #1a1a1a;
-  --color-muted: #2C363F;
+  --color-bg: #fffefa;
+  --color-text: #292d2e;
+  --color-muted: #6f6e6c;
   --color-border: #e0ddd8;
-  --color-accent: #E16F7C;
+  --color-accent: #EB7BC0;
   --color-card-bg: #ffffff;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "EB Garamond", serif;
 }
 
 @layer base {
@@ -23,6 +23,10 @@
 
   h1, h2, h3 {
     font-family: var(--font-serif);
+  }
+
+  h2 {
+    font-weight: 400;
   }
 
   ::selection {
@@ -44,7 +48,7 @@
     margin-left: -5px;
     margin-top: -5px;
     border-radius: 50%;
-    background-color: #E16F7C;
+    background-color: #EB7BC0;
     pointer-events: none;
     z-index: 9999;
     will-change: transform;
@@ -74,7 +78,7 @@
     font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 500;
-    color: #FBFBF2;
+    color: #FAFAF8;
     white-space: nowrap;
     z-index: 9999;
     letter-spacing: 0.04em;
@@ -150,9 +154,9 @@
 
 /* ── Hover: title color ── */
 .card-title {
-  color: #1a1a1a;
+  color: #292d2e;
   transition: color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .card:hover .card-title {
-  color: #E16F7C;
+  color: #EB7BC0;
 }
