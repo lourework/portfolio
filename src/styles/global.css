@@ -5,7 +5,7 @@
   --color-text: #292d2e;
   --color-muted: #6f6e6c;
   --color-border: #e0ddd8;
-  --color-accent: #EB7BC0;
+  --color-accent: #FF5376;
   --color-card-bg: #ffffff;
 
   --font-sans: "Rubik", sans-serif;
@@ -48,7 +48,7 @@
     margin-left: -5px;
     margin-top: -5px;
     border-radius: 50%;
-    background-color: #EB7BC0;
+    background-color: #FF5376;
     pointer-events: none;
     z-index: 9999;
     will-change: transform;
@@ -158,5 +158,5 @@
   transition: color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .card:hover .card-title {
-  color: #EB7BC0;
+  color: #FF5376;
 }

@@ -31,6 +31,7 @@ import { url } from '../utils/url'
     opacity: 1;
   }
 
+
   /* Icon: Front-End code lines */
   @keyframes fe-grow {
     0%, 8%    { transform: scaleX(0); opacity: 0; }
@@ -42,8 +43,10 @@ import { url } from '../utils/url'
   .fe-l3 { transform-box: fill-box; transform-origin: left center; animation: fe-grow 4s ease-in-out 0.6s infinite; }
   .fe-l4 { transform-box: fill-box; transform-origin: left center; animation: fe-grow 4s ease-in-out 0.85s infinite; }
 </style>
-<section class="max-w-5xl mx-auto px-6 pt-20 pb-24 text-center">
-  <div class="w-full">
+<section class="min-h-screen max-w-5xl mx-auto px-6 pt-20 pb-[60px] text-center flex flex-col">
+
+  <!-- Block 1: Intro (~60%) -->
+  <div class="flex-[3] flex flex-col justify-center">
     <h1 class="text-xl font-normal leading-tight mb-4" style='font-family: "Rubik", sans-serif'>
       <span id="typewriter-text"></span><span class="typewriter-cursor" id="typewriter-cursor"></span>
       <span class="text-[var(--color-accent)]">Babi</span>. <span class="blink-face">ツ</span>
@@ -51,12 +54,14 @@ import { url } from '../utils/url'
     <p class="font-normal text-[#292d2e] leading-tight mb-4 w-[90%] mx-auto" style='font-size: 3rem; font-family: "EB Garamond", serif'>
       Designer who codes.<br>Developer who still cares about the details.
     </p>
-
-    <p class="text-base text-[var(--color-muted)] leading-loose mb-10 w-[70%] mx-auto">
+    <p class="text-base text-[var(--color-muted)] leading-loose w-[70%] mx-auto">
       Not a designer who dabbles in code, or a developer with an eye for design. I do both seriously — and that's exactly where the interesting work lives.
     </p>
+  </div>
 
-    <div class="grid sm:grid-cols-3 gap-6 mb-12 pt-10">
+  <!-- Block 2: Services + CTAs (~40%) -->
+  <div class="flex-[2] flex flex-col justify-center">
+    <div class="grid sm:grid-cols-3 gap-6 mb-12">
       <div>
         <!-- Product Design: artboard corner frame + curve + traveling dot -->
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true" class="mb-5 mx-auto">
@@ -65,8 +70,8 @@ import { url } from '../utils/url'
           <path d="M4 36 L4 44 L12 44" stroke="#292d2e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M36 44 L44 44 L44 36" stroke="#292d2e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
           <path id="icon-pd-path" d="M14 33 C18 22 20 15 24 21 C28 27 32 22 36 14"
-                stroke="#EB7BC0" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          <circle r="3" fill="#EB7BC0">
+                stroke="#FF5376" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle r="3" fill="#FF5376">
             <animateMotion dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.37 0 0.63 1">
               <mpath href="#icon-pd-path"/>
             </animateMotion>
@@ -84,7 +89,7 @@ import { url } from '../utils/url'
           <circle cx="14.5" cy="11.5" r="1.5" fill="#e0ddd8"/>
           <rect x="9" y="22" width="24" height="2" rx="1" fill="#292d2e" class="fe-l1"/>
           <rect x="9" y="27" width="18" height="2" rx="1" fill="#292d2e" class="fe-l2"/>
-          <rect x="9" y="32" width="10" height="2" rx="1" fill="#EB7BC0" class="fe-l3"/>
+          <rect x="9" y="32" width="10" height="2" rx="1" fill="#FF5376" class="fe-l3"/>
           <rect x="20" y="32" width="16" height="2" rx="1" fill="#292d2e" class="fe-l4"/>
         </svg>
         <h2 class="font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-2" style='font-size: 1rem; font-family: "Rubik", sans-serif; font-weight: 500'>Front-End Development</h2>
@@ -101,7 +106,7 @@ import { url } from '../utils/url'
           <path d="M15 21.5 L17 24 L15 26.5" stroke="#292d2e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <path d="M33.5 21.5 L35.5 24 L33.5 26.5" stroke="#292d2e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <path id="icon-ee-path" d="M6 24 L42 24" fill="none" stroke="none" visibility="hidden"/>
-          <circle r="3.5" fill="#EB7BC0">
+          <circle r="3.5" fill="#FF5376">
             <animateMotion dur="2.5s" repeatCount="indefinite" calcMode="linear">
               <mpath href="#icon-ee-path"/>
             </animateMotion>
@@ -131,6 +136,7 @@ import { url } from '../utils/url'
       </a>
     </div>
   </div>
+
 </section>
 
 <script>
@@ -177,4 +183,5 @@ import { url } from '../utils/url'
   }
 
   setTimeout(tick, 400)
+
 </script>
